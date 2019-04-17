@@ -46,10 +46,11 @@ int main(
 
   /* Write data... */
   for (iz = 0; iz < gps->nz[ids]; iz++)
-    fprintf(out, "%.2f %g %g %g %g %g %g %g %g\n",
-	    gps->time[ids], gps->z[ids][iz], gps->lon[ids][iz],
-	    gps->lat[ids][iz], gps->p[ids][iz], gps->t[ids][iz],
-	    gps->wv[ids][iz], gps->pt[ids][iz], gps->th[ids]);
+    if (gps->z[ids][iz] > 0)
+      fprintf(out, "%.2f %g %g %g %g %g %g %g %g\n",
+	      gps->time[ids], gps->z[ids][iz], gps->lon[ids][iz],
+	      gps->lat[ids][iz], gps->p[ids][iz], gps->t[ids][iz],
+	      gps->wv[ids][iz], gps->pt[ids][iz], gps->th[ids]);
 
   /* Close file... */
   fclose(out);

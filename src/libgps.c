@@ -879,9 +879,7 @@ void write_gps(
   static double help[NDS * NZ];
 
   int ids, iz, ncid, dimid[2], time_id, z_id, lon_id, lat_id, p_id, t_id,
-    pt_id, wv_id, th_id;
-
-  size_t nzmax = 0;
+    pt_id, wv_id, th_id, nzmax = 0;
 
   /* Create netCDF file... */
   printf("Write GPS-RO file: %s\n", filename);
@@ -890,8 +888,8 @@ void write_gps(
   /* Set dimensions... */
   NC(nc_def_dim(ncid, "NDS", (size_t) gps->nds, &dimid[0]));
   for (ids = 0; ids < gps->nds; ids++)
-    nzmax = GSL_MAX(nzmax, (size_t) gps->nz[ids]);
-  NC(nc_def_dim(ncid, "NZ", nzmax, &dimid[1]));
+    nzmax = GSL_MAX(nzmax, gps->nz[ids]);
+  NC(nc_def_dim(ncid, "NZ", (size_t) nzmax, &dimid[1]));
 
   /* Add variables... */
   add_var(ncid, "time", "s", "time (seconds since 2000-01-01T00:00Z)",
@@ -915,31 +913,31 @@ void write_gps(
   NC(nc_put_var_double(ncid, th_id, gps->th));
   for (ids = 0; ids < gps->nds; ids++)
     for (iz = 0; iz < gps->nz[ids]; iz++)
-      help[ids * gps->nz[ids] + iz] = gps->z[ids][iz];
+      help[ids * nzmax + iz] = gps->z[ids][iz];
   NC(nc_put_var_double(ncid, z_id, help));
   for (ids = 0; ids < gps->nds; ids++)
     for (iz = 0; iz < gps->nz[ids]; iz++)
-      help[ids * gps->nz[ids] + iz] = gps->lon[ids][iz];
+      help[ids * nzmax + iz] = gps->lon[ids][iz];
   NC(nc_put_var_double(ncid, lon_id, help));
   for (ids = 0; ids < gps->nds; ids++)
     for (iz = 0; iz < gps->nz[ids]; iz++)
-      help[ids * gps->nz[ids] + iz] = gps->lat[ids][iz];
+      help[ids * nzmax + iz] = gps->lat[ids][iz];
   NC(nc_put_var_double(ncid, lat_id, help));
   for (ids = 0; ids < gps->nds; ids++)
     for (iz = 0; iz < gps->nz[ids]; iz++)
-      help[ids * gps->nz[ids] + iz] = gps->p[ids][iz];
+      help[ids * nzmax + iz] = gps->p[ids][iz];
   NC(nc_put_var_double(ncid, p_id, help));
   for (ids = 0; ids < gps->nds; ids++)
     for (iz = 0; iz < gps->nz[ids]; iz++)
-      help[ids * gps->nz[ids] + iz] = gps->t[ids][iz];
+      help[ids * nzmax + iz] = gps->t[ids][iz];
   NC(nc_put_var_double(ncid, t_id, help));
   for (ids = 0; ids < gps->nds; ids++)
     for (iz = 0; iz < gps->nz[ids]; iz++)
-      help[ids * gps->nz[ids] + iz] = gps->wv[ids][iz];
+      help[ids * nzmax + iz] = gps->wv[ids][iz];
   NC(nc_put_var_double(ncid, wv_id, help));
   for (ids = 0; ids < gps->nds; ids++)
     for (iz = 0; iz < gps->nz[ids]; iz++)
-      help[ids * gps->nz[ids] + iz] = gps->pt[ids][iz];
+      help[ids * nzmax + iz] = gps->pt[ids][iz];
   NC(nc_put_var_double(ncid, pt_id, help));
 
   /* Close file... */
