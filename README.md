@@ -11,7 +11,7 @@ and 'make' are required for installation.
 
 Start by downloading the source code from the github repository:
 
-    git clone https://github.com/slcs-jsc/gps
+    git clone https://jugit.fz-juelich.de/slcs/gps
 
 Change to the directory gps/ which holds source codes,
 libraries, documentation, etc:
