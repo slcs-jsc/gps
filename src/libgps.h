@@ -28,9 +28,10 @@
 
 /*! Execute netCDF library command and check result. */
 #define NC(cmd) {				     \
-    if((cmd)!=NC_NOERR)				     \
-      ERRMSG(nc_strerror(cmd));			     \
-  }
+  int nc_result=(cmd);				     \
+  if(nc_result!=NC_NOERR)			     \
+    ERRMSG("%s", nc_strerror(nc_result));	     \
+}
 
 /* ------------------------------------------------------------
    Structs...

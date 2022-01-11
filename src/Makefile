@@ -5,40 +5,55 @@
 # Executables...
 EXC = events map perturbation prof response variance
 
+# Installation directory...
+DESTDIR ?= ../bin
+
 # Library directories...
-LIBDIR = -L ../lib/build/lib -L ../lib/build/lib64
+LIBDIR += -L ../lib/build/lib -L ../lib/build/lib64
 
 # Include directories...
-INCDIR = -I ../lib/build/include
+INCDIR += -I ../lib/build/include
 
-# Linking...
-STATIC = 1
+# Static compilation...
+STATIC ?= 1
 
-# Profiling...
-#PROF = 1
+# Optimization flags...
+OPT ?= -O3
+
+# Optimization information...
+INFO ?= 0
+
+# Compile for profiling...
+PROF ?= 0
 
 # -----------------------------------------------------------------------------
 # Set flags for GNU compiler...
 # -----------------------------------------------------------------------------
 
+# Get git version...
+VERSION ?= $(shell git describe --abbrev=4 --dirty --always --tags)
+
 # Compiler...
-CC = gcc
+CC ?= gcc
 
 # CFLAGS...
-CFLAGS = $(INCDIR) -DHAVE_INLINE -DGSL_DISABLE_DEPRACTED $(DEFS) -pedantic -Werror -Wall -W -Wmissing-prototypes -Wstrict-prototypes -Wconversion -Wshadow -Wpointer-arith -Wcast-qual -Wcast-align -Wnested-externs -Wno-long-long -Wmissing-declarations -Wredundant-decls -Winline -fno-common -fshort-enums -fopenmp
+CFLAGS ?= $(INCDIR) $(DEFINES) -DVERSION=\"$(VERSION)\" -DHAVE_INLINE -DGSL_DISABLE_DEPRACTED -pedantic -Werror -Wall -W -Wmissing-prototypes -Wstrict-prototypes -Wconversion -Wshadow -Wpointer-arith -Wcast-qual -Wcast-align -Wnested-externs -Wno-long-long -Wmissing-declarations -Wredundant-decls -Winline -fno-common -fshort-enums -fopenmp $(OPT) -g -fopenmp
 
 # LDFLAGS...
-LDFLAGS = $(LIBDIR) -lnetcdf -lgsl -lgslcblas -lm
+LDFLAGS ?= $(LIBDIR) -lnetcdf -lgsl -lgslcblas -lm
 
-# Profiling...
-ifdef PROF
-  CFLAGS += -O2 -g -pg 
-else
-  CFLAGS += -O3
+# Optimization information...
+ifeq ($(INFO),1)
+  CFLAGS += -fopt-info
 endif
 
-# Linking...
-ifdef STATIC
+# Compile for profiling...
+ifeq ($(PROF),1)
+  CFLAGS += -pg
+endif
+
+# Static compilation...
+ifeq ($(STATIC),1)
   CFLAGS += -static
 endif
 
