@@ -77,7 +77,7 @@ clean:
 	rm -f $(EXC) *.o *~
 
 cppcheck:
-	cd ../ && cppcheck --enable=all ./src
+	cppcheck --enable=all ./
 
 dist:
 	zip gps_`date +"%y%m%d%H%M"`.zip Doxyfile Makefile *.c *.h
