@@ -73,11 +73,14 @@ libgps.o: libgps.c libgps.h Makefile
 jurassic.o: jurassic.c jurassic.h Makefile
 	$(CC) $(CFLAGS) -c -o jurassic.o jurassic.c
 
+check_cppcheck:
+	cppcheck --enable=all ./
+
+check_lizard:
+	lizard -s cyclomatic_complexity
+
 clean:
 	rm -f $(EXC) *.o *~
-
-cppcheck:
-	cppcheck --enable=all ./
 
 dist:
 	zip gps_`date +"%y%m%d%H%M"`.zip Doxyfile Makefile *.c *.h
