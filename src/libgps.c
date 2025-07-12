@@ -30,7 +30,7 @@ void add_var(
 /*****************************************************************************/
 
 void detrend_met(
-  gps_t * gps,
+  gps_t *gps,
   char *metbase,
   double dt_met) {
 
@@ -70,7 +70,7 @@ void detrend_met(
 /*****************************************************************************/
 
 void gauss(
-  gps_t * gps,
+  gps_t *gps,
   double dx,
   double dy) {
 
@@ -113,7 +113,7 @@ void gauss(
 /*****************************************************************************/
 
 void grid_gps(
-  gps_t * gps,
+  gps_t *gps,
   double zmin,
   double zmax,
   int nz) {
@@ -173,8 +173,8 @@ void get_met(
   char *metbase,
   double dt_met,
   double t,
-  met_t * met0,
-  met_t * met1) {
+  met_t *met0,
+  met_t *met1) {
 
   char filename[LEN];
 
@@ -258,7 +258,7 @@ void intpol_met_3d(
 /*****************************************************************************/
 
 void intpol_met_space(
-  met_t * met,
+  met_t *met,
   double p,
   double lon,
   double lat,
@@ -289,8 +289,8 @@ void intpol_met_space(
 /*****************************************************************************/
 
 void intpol_met_time(
-  met_t * met0,
-  met_t * met1,
+  met_t *met0,
+  met_t *met1,
   double ts,
   double p,
   double lon,
@@ -313,7 +313,7 @@ void intpol_met_time(
 /*****************************************************************************/
 
 void hamming_low_pass(
-  gps_t * gps,
+  gps_t *gps,
   double dz) {
 
   double ham[NZ], wsum;
@@ -372,7 +372,7 @@ void hamming_low_pass(
 /*****************************************************************************/
 
 void hamming_high_pass(
-  gps_t * gps,
+  gps_t *gps,
   double dz) {
 
   double ham[NZ], pt[NZ], wsum;
@@ -427,7 +427,7 @@ void hamming_high_pass(
 /*****************************************************************************/
 
 void poly(
-  gps_t * gps,
+  gps_t *gps,
   int dim,
   double zmin,
   double zmax) {
@@ -515,7 +515,7 @@ void poly_help(
 
 void read_gps_prof(
   char *filename,
-  gps_t * gps) {
+  gps_t *gps) {
 
   char bad[10];
 
@@ -606,7 +606,7 @@ void read_gps_prof(
 
 void read_gps(
   char *filename,
-  gps_t * gps) {
+  gps_t *gps) {
 
   int ids, ncid, dimid, varid;
 
@@ -677,7 +677,7 @@ void read_gps(
 
 void read_met(
   char *filename,
-  met_t * met) {
+  met_t *met) {
 
   char tstr[10];
 
@@ -756,7 +756,7 @@ void read_met(
 /*****************************************************************************/
 
 void read_met_extrapolate(
-  met_t * met) {
+  met_t *met) {
 
   int ip, ip0, ix, iy;
 
@@ -781,7 +781,7 @@ void read_met_help(
   int ncid,
   char *varname,
   char *varname2,
-  met_t * met,
+  met_t *met,
   float dest[EX][EY][EP],
   float scl) {
 
@@ -810,7 +810,7 @@ void read_met_help(
 /*****************************************************************************/
 
 void read_met_periodic(
-  met_t * met) {
+  met_t *met) {
 
   int ip, iy;
 
@@ -835,7 +835,7 @@ void read_met_periodic(
 /*****************************************************************************/
 
 void tropopause(
-  gps_t * gps) {
+  gps_t *gps) {
 
   double zmin;
 
@@ -874,7 +874,7 @@ void tropopause(
 
 void write_gps(
   char *filename,
-  gps_t * gps) {
+  gps_t *gps) {
 
   static double help[NDS * NZ];
 

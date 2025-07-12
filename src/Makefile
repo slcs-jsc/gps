@@ -9,10 +9,10 @@ EXC = events map perturbation prof response variance
 DESTDIR ?= ../bin
 
 # Library directories...
-LIBDIR += -L ../lib/build/lib -L ../lib/build/lib64
+LIBDIR += -L ../libs/build/lib -L ../libs/build/lib64
 
 # Include directories...
-INCDIR += -I ../lib/build/include
+INCDIR += -I ../libs/build/include
 
 # Static compilation...
 STATIC ?= 1
@@ -85,8 +85,8 @@ clean:
 dist:
 	zip gps_`date +"%y%m%d%H%M"`.zip Doxyfile Makefile *.c *.h
 
-doc:
-	mkdir -p ../doc && doxygen && cd ../doc/latex && make && mv refman.pdf ..
+doxygen:
+	mkdir -p ../docs && cd ../docs && doxygen && cd latex && make && mv refman.pdf ..
 
 indent:
 	indent -br -brf -brs -bfda -ce -cdw -lp -npcs -npsl *.c *.h
