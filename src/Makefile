@@ -61,6 +61,8 @@ endif
 # Targets...
 # -----------------------------------------------------------------------------
 
+.PHONY : all check clean coverage cppcheck dist doxygen indent install lizard mkdocs strip uninstall
+
 all: $(EXC)
 	rm -f *~
 
@@ -73,23 +75,33 @@ libgps.o: libgps.c libgps.h Makefile
 jurassic.o: jurassic.c jurassic.h Makefile
 	$(CC) $(CFLAGS) -c -o jurassic.o jurassic.c
 
-check_cppcheck:
-	cppcheck --enable=all ./
-
-check_lizard:
-	lizard -s cyclomatic_complexity
-
 clean:
 	rm -f $(EXC) *.o *~
 
+cppcheck:
+	cppcheck --enable=all ./
+
 dist:
-	zip gps_`date +"%y%m%d%H%M"`.zip Doxyfile Makefile *.c *.h
+	cd ..  && tar cvfz gps_$(VERSION).tgz bin/* \
+          docs/Doxyfile example/* libs/build.sh libs/*gz src/* tests/*
 
 doxygen:
-	mkdir -p ../docs && cd ../docs && doxygen && cd latex && make && mv refman.pdf ..
+	cd ../docs && doxygen
 
 indent:
 	indent -br -brf -brs -bfda -ce -cdw -lp -npcs -npsl *.c *.h
 
+install:
+	mkdir -p $(DESTDIR) && cp $(EXC) $(DESTDIR)
+
+lizard:
+	lizard -s cyclomatic_complexity
+
+mkdocs:
+	cd ../docs && mkdocs build
+
 strip:
 	strip $(EXC)
+
+uninstall:
+	cd $(DESTDIR) && rm $(EXC)

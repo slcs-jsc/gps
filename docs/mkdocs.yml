@@ -1,0 +1,9 @@
+site_name: GPS Code Collection
+site_url: https://slcs-jsc.github.io/gps/
+repo_url: https://github.com/slcs-jsc/gps
+docs_dir: manual
+theme: material
+
+nav:
+    - Home: index.md
+    - Links: links.md
