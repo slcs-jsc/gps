@@ -2,7 +2,6 @@
 
 # Setup...
 target=$(rm -rf build && mkdir -p build && cd build && pwd)
-threads=$(cat /proc/cpuinfo | grep processor | wc -l)
 
 # Prepare directories...
 mkdir -p $target/src $target/bin $target/lib $target/man/man1 \
@@ -12,15 +11,15 @@ mkdir -p $target/src $target/bin $target/lib $target/man/man1 \
 	|| exit
 
 # GSL...
-dir=gsl-2.5
+dir=gsl-2.7.1
 cd $target/src/$dir \
     && ./configure --prefix=$target \
-    && make -j$threads && make check && make install && make clean \
+    && make -j && make check && make install && make clean \
 	|| exit
 
 # netCDF...
 dir=netcdf-c-4.6.2
 cd $target/src/$dir \
     && ./configure --prefix=$target --disable-dap --disable-netcdf-4 \
-    && make -j$threads && make check && make install && make clean \
+    && make -j && make check && make install && make clean \
 	|| exit
