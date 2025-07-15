@@ -617,7 +617,7 @@ void read_gps_prof(
 
   /* Convert water vapor... */
   for (iz = 0; iz < nz; iz++)
-    gps->wv[gps->nds][iz] *= 1e6 / gps->p[gps->nds][iz];
+    gps->wv[gps->nds][iz] /= gps->p[gps->nds][iz];
 
   /* Close file... */
   NC(nc_close(ncid));
@@ -859,6 +859,53 @@ void read_met_periodic(
 
 /*****************************************************************************/
 
+void spline(
+  const double *x,
+  const double *y,
+  const int n,
+  const double *x2,
+  double *y2,
+  const int n2,
+  const int method) {
+
+  /* Cubic spline interpolation... */
+  if (method == 1) {
+
+    /* Allocate... */
+    gsl_interp_accel *acc = gsl_interp_accel_alloc();
+    gsl_spline *s = gsl_spline_alloc(gsl_interp_cspline, (size_t) n);
+
+    /* Interpolate profile... */
+    gsl_spline_init(s, x, y, (size_t) n);
+    for (int i = 0; i < n2; i++)
+      if (x2[i] <= x[0])
+	y2[i] = y[0];
+      else if (x2[i] >= x[n - 1])
+	y2[i] = y[n - 1];
+      else
+	y2[i] = gsl_spline_eval(s, x2[i], acc);
+
+    /* Free... */
+    gsl_spline_free(s);
+    gsl_interp_accel_free(acc);
+  }
+
+  /* Linear interpolation... */
+  else {
+    for (int i = 0; i < n2; i++)
+      if (x2[i] <= x[0])
+	y2[i] = y[0];
+      else if (x2[i] >= x[n - 1])
+	y2[i] = y[n - 1];
+      else {
+	int idx = locate_irr(x, n, x2[i]);
+	y2[i] = LIN(x[idx], y[idx], x[idx + 1], y[idx + 1], x2[i]);
+      }
+  }
+}
+
+/*****************************************************************************/
+
 void tropopause(
   gps_t *gps) {
 
@@ -897,6 +944,138 @@ void tropopause(
 
 /*****************************************************************************/
 
+void tropopause_spline(
+  gps_t *gps,
+  int met_tropo) {
+
+  /* Loop over data sets... */
+#pragma omp parallel for default(shared)
+  for (int ids = 0; ids < gps->nds; ids++) {
+
+    /* Initialize tropopause data... */
+    gps->tp[ids] = NAN;
+    gps->th[ids] = NAN;
+    gps->tt[ids] = NAN;
+    gps->tq[ids] = NAN;
+    gps->tlon[ids] = NAN;
+    gps->tlat[ids] = NAN;
+
+    /* Get altitude and pressure profiles... */
+    int nz = 0;
+    double h[NZ], t[NZ], z[NZ], q[NZ], lon[NZ], lat[NZ];
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
+      if (gsl_finite(gps->p[ids][iz]) && gsl_finite(gps->t[ids][iz])
+	  && gsl_finite(gps->z[ids][iz])
+	  && gps->z[ids][iz] >= 4.0 && gps->z[ids][iz] <= 24.0) {
+	h[nz] = gps->z[ids][iz];
+	t[nz] = gps->t[ids][iz];
+	z[nz] = Z(gps->p[ids][iz]);
+	q[nz] = gps->wv[ids][iz];
+	lon[nz] = gps->lon[ids][iz];
+	lat[nz] = gps->lat[ids][iz];
+	if (nz > 0 && z[nz] <= z[nz - 1])
+	  ERRMSG("Profiles must be ascending!");
+	if ((++nz) >= NZ)
+	  ERRMSG("Too many height levels!");
+      }
+
+    /* Set grid for spline interpolation... */
+    double h2[200], p2[200], t2[200], z2[200], q2[200];
+    for (int iz = 0; iz <= 190; iz++) {
+      z2[iz] = 4.5 + 0.1 * iz;
+      p2[iz] = P(z2[iz]);
+    }
+
+    /* Interpolate temperature and geopotential height profiles... */
+    spline(z, t, nz, z2, t2, 191, 1);
+    spline(z, h, nz, z2, h2, 191, 1);
+    spline(z, q, nz, z2, q2, 191, 1);
+
+    /* Use cold point... */
+    if (met_tropo == 2) {
+
+      /* Find minimum... */
+      int iz = (int) gsl_stats_min_index(t2, 1, 171);
+      if (iz > 0 && iz < 170) {
+	gps->tp[ids] = p2[iz];
+	gps->th[ids] = h2[iz];
+	gps->tt[ids] = t2[iz];
+	gps->tq[ids] = q2[iz];
+      }
+    }
+
+    /* Use WMO definition... */
+    else if (met_tropo == 3 || met_tropo == 4) {
+
+      /* Find 1st tropopause... */
+      int iz;
+      for (iz = 0; iz <= 170; iz++) {
+	int found = 1;
+	for (int iz2 = iz + 1; iz2 <= iz + 20; iz2++)
+	  if (LAPSE(p2[iz], t2[iz], p2[iz2], t2[iz2]) > 2.0) {
+	    found = 0;
+	    break;
+	  }
+	if (found) {
+	  if (iz > 0 && iz < 170) {
+	    gps->tp[ids] = p2[iz];
+	    gps->th[ids] = h2[iz];
+	    gps->tt[ids] = t2[iz];
+	    gps->tq[ids] = q2[iz];
+	  }
+	  break;
+	}
+      }
+
+      /* Find 2nd tropopause... */
+      if (met_tropo == 4) {
+	gps->tp[ids] = NAN;
+	for (; iz <= 170; iz++) {
+	  int found = 1;
+	  for (int iz2 = iz + 1; iz2 <= iz + 10; iz2++)
+	    if (LAPSE(p2[iz], t2[iz], p2[iz2], t2[iz2]) < 3.0) {
+	      found = 0;
+	      break;
+	    }
+	  if (found)
+	    break;
+	}
+	for (; iz <= 170; iz++) {
+	  int found = 1;
+	  for (int iz2 = iz + 1; iz2 <= iz + 20; iz2++)
+	    if (LAPSE(p2[iz], t2[iz], p2[iz2], t2[iz2]) > 2.0) {
+	      found = 0;
+	      break;
+	    }
+	  if (found) {
+	    if (iz > 0 && iz < 170) {
+	      gps->tp[ids] = p2[iz];
+	      gps->th[ids] = h2[iz];
+	      gps->tt[ids] = t2[iz];
+	      gps->tq[ids] = q2[iz];
+	    }
+	    break;
+	  }
+	}
+      }
+    }
+
+    else
+      ERRMSG("Cannot calculate tropopause!");
+
+    /* Find tropopause longitude and latitude... */
+    if (gsl_finite(gps->th[ids]))
+      for (int iz = 0; iz < nz - 1; iz++)
+	if (gps->th[ids] >= h[iz] && gps->th[ids] < h[iz + 1]) {
+	  gps->tlon[ids] = lon[iz];
+	  gps->tlat[ids] = lat[iz];
+	  break;
+	}
+  }
+}
+
+/*****************************************************************************/
+
 void write_gps(
   char *filename,
   gps_t *gps) {
@@ -924,7 +1103,7 @@ void write_gps(
   add_var(ncid, "lat", "deg", "latitude", NC_FLOAT, dimid, &lat_id, 2);
   add_var(ncid, "p", "hPa", "pressure", NC_FLOAT, dimid, &p_id, 2);
   add_var(ncid, "t", "K", "temperature", NC_FLOAT, dimid, &t_id, 2);
-  add_var(ncid, "wv", "ppm", "water vapor volume mixing ratio",
+  add_var(ncid, "wv", "ppv", "water vapor volume mixing ratio",
 	  NC_FLOAT, dimid, &wv_id, 2);
   add_var(ncid, "pt", "K", "temperature perturbation",
 	  NC_FLOAT, dimid, &pt_id, 2);

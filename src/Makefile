@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 
 # Executables...
-EXC = events map perturbation prof response variance
+EXC = events map perturbation prof response tropopause variance
 
 # Installation directory...
 DESTDIR ?= ../bin

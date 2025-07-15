@@ -32,19 +32,19 @@
   \section Introduction
 
   The source code of the GPS Code Collection is available from the
-  [git repository](https://github.com/slcs-jsc/airs). Please see the
-  [README.md](https://github.com/slcs-jsc/airs/blob/master/README.md)
+  [git repository](https://github.com/slcs-jsc/gps). Please see the
+  [README.md](https://github.com/slcs-jsc/gps/blob/master/README.md)
   in the git repository for introductory information. More information
-  can be found in the [user manual](https://slcs-jsc.github.io/airs).
+  can be found in the [user manual](https://slcs-jsc.github.io/gps).
   
   This doxygen manual contains information about the algorithms and
-  data structures used in the code. Please refer to the `libairs.h'
+  data structures used in the code. Please refer to the `libgps.h'
   documentation for a first overview.
   
   \section References
   
   For citing the model in scientific publications, please see
-  [CITATION.cff](https://github.com/slcs-jsc/airs/blob/master/CITATION.cff).
+  [CITATION.cff](https://github.com/slcs-jsc/gps/blob/master/CITATION.cff).
   
   \section License
   
@@ -52,7 +52,7 @@
   Forschungszentrum Jülich, Germany.
   
   the GPS Code Collection is distributed under the terms of the
-  [GNU General Public License v3.0](https://github.com/slcs-jsc/airs/blob/master/COPYING).
+  [GNU General Public License v3.0](https://github.com/slcs-jsc/gps/blob/master/COPYING).
   
   \section Contributing
   
@@ -60,10 +60,10 @@
   applications with the GPS Code Collection.
   
   You can submit bug reports or feature requests on the
-  [issue tracker](https://github.com/slcs-jsc/airs/issues).
+  [issue tracker](https://github.com/slcs-jsc/gps/issues).
   
   Proposed code changes and fixes can be submitted as
-  [pull requests](https://github.com/slcs-jsc/airs/pulls).
+  [pull requests](https://github.com/slcs-jsc/gps/pulls).
   
   Please do not hesitate to contact us if you have any questions or
   need assistance.
@@ -80,6 +80,7 @@
 #include <netcdf.h>
 #include <gsl/gsl_multifit.h>
 #include <gsl/gsl_poly.h>
+#include <gsl/gsl_spline.h>
 #include "jurassic.h"
 
 /* ------------------------------------------------------------
@@ -102,15 +103,47 @@
 #define NZ 5000
 
 /* ------------------------------------------------------------
+   Constants...
+   ------------------------------------------------------------ */
+
+/*! Molar mass of dry air [g/mol]. */
+#ifndef MA
+#define MA 28.9644
+#endif
+
+/*! Specific gas constant of dry air [J/(kg K)]. */
+#ifndef RA
+#define RA (1e3 * RI / MA)
+#endif
+
+/*! Ideal gas constant [J/(mol K)]. */
+#ifndef RI
+#define RI 8.3144598
+#endif
+
+/* ------------------------------------------------------------
    Macros...
    ------------------------------------------------------------ */
 
+/*! Calculate lapse rate. */
+#define LAPSE(p1, t1, p2, t2)						\
+  (1e3 * G0 / RA * ((t2) - (t1)) / ((t2) + (t1))			\
+   * ((p2) + (p1)) / ((p2) - (p1)))
+
 /*! Execute netCDF library command and check result. */
 #define NC(cmd) {				     \
-  int nc_result=(cmd);				     \
-  if(nc_result!=NC_NOERR)			     \
-    ERRMSG("%s", nc_strerror(nc_result));	     \
-}
+    int nc_result=(cmd);			     \
+    if(nc_result!=NC_NOERR)			     \
+      ERRMSG("%s", nc_strerror(nc_result));	     \
+  }
+
+/*! Compute pressure at given altitude. */
+#define P(z)					\
+  (P0 * exp(-(z) / H0))
+
+/*! Convert pressure to altitude. */
+#define Z(p)					\
+  (H0 * log(P0 / (p)))
 
 /* ------------------------------------------------------------
    Structs...
@@ -151,6 +184,21 @@ typedef struct {
 
   /*! Tropopause height [km]. */
   double th[NDS];
+
+  /*! Tropopause pressure [hPa]. */
+  double tp[NDS];
+
+  /*! Tropopause temperature [K]. */
+  double tt[NDS];
+
+  /*! Tropopause water vapor [ppmv]. */
+  double tq[NDS];
+
+  /*! Tropopause longitude [deg]. */
+  double tlon[NDS];
+
+  /*! Tropopause latitude [deg]. */
+  double tlat[NDS];
 
 } gps_t;
 
@@ -320,9 +368,24 @@ void read_met_help(
 void read_met_periodic(
   met_t * met);
 
+/*! @brief Performs spline interpolation or linear interpolation. */
+void spline(
+  const double *x,
+  const double *y,
+  const int n,
+  const double *x2,
+  double *y2,
+  const int n2,
+  const int method);
+
 /*! Find tropopause height. */
 void tropopause(
   gps_t * gps);
+
+/*! Find tropopause height using cubic spline interpolation. */
+void tropopause_spline(
+  gps_t * gps,
+  int met_tropo);
 
 /*! Write GPS-RO data file. */
 void write_gps(
