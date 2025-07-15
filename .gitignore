@@ -10,3 +10,7 @@ src/perturbation
 src/prof
 src/response
 src/variance
+src/*.gcno
+src/*.gcda
+src/*.gcov
+src/coverage*
