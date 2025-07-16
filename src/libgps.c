@@ -952,7 +952,7 @@ void tropopause_spline(
 #pragma omp parallel for default(shared)
   for (int ids = 0; ids < gps->nds; ids++) {
 
-    /* Initialize tropopause data... */
+    /* Init... */
     gps->tp[ids] = NAN;
     gps->th[ids] = NAN;
     gps->tt[ids] = NAN;
@@ -960,7 +960,7 @@ void tropopause_spline(
     gps->tlon[ids] = NAN;
     gps->tlat[ids] = NAN;
 
-    /* Get altitude and pressure profiles... */
+    /* Get vertical profiles... */
     int nz = 0;
     double h[NZ], t[NZ], z[NZ], q[NZ], lon[NZ], lat[NZ];
     for (int iz = 0; iz < gps->nz[ids]; iz++)
@@ -978,6 +978,8 @@ void tropopause_spline(
 	if ((++nz) >= NZ)
 	  ERRMSG("Too many height levels!");
       }
+    if (z[0] > 4.5 || z[nz - 1] < 23.5)
+      WARN("Vertical profile is incomplete!");
 
     /* Set grid for spline interpolation... */
     double h2[200], p2[200], t2[200], z2[200], q2[200];
@@ -1029,7 +1031,14 @@ void tropopause_spline(
 
       /* Find 2nd tropopause... */
       if (met_tropo == 4) {
+
+	/* Init... */
 	gps->tp[ids] = NAN;
+	gps->th[ids] = NAN;
+	gps->tt[ids] = NAN;
+	gps->tq[ids] = NAN;
+
+	/* Check layers... */
 	for (; iz <= 170; iz++) {
 	  int found = 1;
 	  for (int iz2 = iz + 1; iz2 <= iz + 10; iz2++)
@@ -1059,9 +1068,6 @@ void tropopause_spline(
 	}
       }
     }
-
-    else
-      ERRMSG("Cannot calculate tropopause!");
 
     /* Find tropopause longitude and latitude... */
     if (gsl_finite(gps->th[ids]))
