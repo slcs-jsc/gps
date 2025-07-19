@@ -63,17 +63,15 @@ void detrend_met(
 
   double t;
 
-  int ids, iz;
-
   /* Allocate... */
   ALLOC(met0, met_t, 1);
   ALLOC(met1, met_t, 1);
 
   /* Loop over profiles... */
-  for (ids = 0; ids < gps->nds; ids++) {
+  for (int ids = 0; ids < gps->nds; ids++) {
 
     /* Loop over altitudes... */
-    for (iz = 0; iz < gps->nz[ids]; iz++) {
+    for (int iz = 0; iz < gps->nz[ids]; iz++) {
 
       /* Get meteorological data... */
       get_met(metbase, dt_met, gps->time[ids], met0, met1);
@@ -764,11 +762,11 @@ void read_met(
 void read_met_extrapolate(
   met_t *met) {
 
-  int ip, ip0, ix, iy;
+  int ip0;
 
   /* Loop over columns... */
-  for (ix = 0; ix < met->nx; ix++)
-    for (iy = 0; iy < met->ny; iy++) {
+  for (int ix = 0; ix < met->nx; ix++)
+    for (int iy = 0; iy < met->ny; iy++) {
 
       /* Find lowest valid data point... */
       for (ip0 = met->np - 1; ip0 >= 0; ip0--)
@@ -776,7 +774,7 @@ void read_met_extrapolate(
 	  break;
 
       /* Extrapolate... */
-      for (ip = ip0; ip >= 0; ip--)
+      for (int ip = ip0; ip >= 0; ip--)
 	met->t[ix][iy][ip] = met->t[ix][iy][ip + 1];
     }
 }
@@ -793,7 +791,7 @@ void read_met_help(
 
   static float help[EX * EY * EP];
 
-  int ip, ix, iy, n = 0, varid;
+  int n = 0, varid;
 
   /* Check if variable exists... */
   if (nc_inq_varid(ncid, varname, &varid) != NC_NOERR)
@@ -804,9 +802,9 @@ void read_met_help(
   NC(nc_get_var_float(ncid, varid, help));
 
   /* Copy and check data... */
-  for (ip = 0; ip < met->np; ip++)
-    for (iy = 0; iy < met->ny; iy++)
-      for (ix = 0; ix < met->nx; ix++) {
+  for (int ip = 0; ip < met->np; ip++)
+    for (int iy = 0; iy < met->ny; iy++)
+      for (int ix = 0; ix < met->nx; ix++) {
 	dest[ix][iy][ip] = scl * help[n++];
 	if (fabs(dest[ix][iy][ip] / scl) > 1e14)
 	  dest[ix][iy][ip] = GSL_NAN;
@@ -817,8 +815,6 @@ void read_met_help(
 
 void read_met_periodic(
   met_t *met) {
-
-  int ip, iy;
 
   /* Check longitudes... */
   if (!(fabs(met->lon[met->nx - 1] - met->lon[0]
@@ -833,8 +829,8 @@ void read_met_periodic(
   met->lon[met->nx - 1] = met->lon[met->nx - 2] + met->lon[1] - met->lon[0];
 
   /* Loop over latitudes and pressure levels... */
-  for (iy = 0; iy < met->ny; iy++)
-    for (ip = 0; ip < met->np; ip++)
+  for (int iy = 0; iy < met->ny; iy++)
+    for (int ip = 0; ip < met->np; ip++)
       met->t[met->nx - 1][iy][ip] = met->t[0][iy][ip];
 }
 
@@ -890,18 +886,16 @@ void spline(
 void tropopause(
   gps_t *gps) {
 
-  double zmin;
-
-  int ids, iz, iz2, okay;
+  int iz, iz2, okay;
 
   /* Loop over profiles... */
-  for (ids = 0; ids < gps->nds; ids++) {
+  for (int ids = 0; ids < gps->nds; ids++) {
 
     /* Set default value... */
     gps->th[ids] = GSL_NAN;
 
     /* Set minimum altitude... */
-    zmin =
+    const double zmin =
       8 - 4 * fabs(cos((90 - gps->lat[ids][gps->nz[ids] / 2]) * M_PI / 180));
 
     /* Search tropopause (WMO definition)... */
