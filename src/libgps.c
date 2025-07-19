@@ -341,29 +341,27 @@ void hamming_low_pass(
   gps_t *gps,
   double dz) {
 
-  double ham[NZ], wsum;
-
-  int ids, iham, iz, nham;
+  double ham[NZ];
 
   /* Loop over profiles... */
-  for (ids = 0; ids < gps->nds; ids++) {
+  for (int ids = 0; ids < gps->nds; ids++) {
 
     /* Calculate Hamming window coefficients... */
-    nham = (int) (dz / fabs((gps->z[ids][0] - gps->z[ids][gps->nz[ids] - 1])
+    int nham = (int) (dz / fabs((gps->z[ids][0] - gps->z[ids][gps->nz[ids] - 1])
 			    / (gps->nz[ids] - 1.0)) + 0.5);
     nham = GSL_MAX(GSL_MIN(nham, NZ), 2);
-    for (iham = 0; iham < nham; iham++)
+    for (int iham = 0; iham < nham; iham++)
       ham[iham] = 0.54 + 0.46 * cos(M_PI * iham / (nham - 1.0));
 
     /* Loop over altitudes... */
-    for (iz = 0; iz < gps->nz[ids]; iz++) {
+    for (int iz = 0; iz < gps->nz[ids]; iz++) {
 
       /* Initialize... */
       gps->pt[ids][iz] = ham[0] * gps->t[ids][iz];
-      wsum = ham[0];
+      double wsum = ham[0];
 
       /* Loop over filter window... */
-      for (iham = 1; iham < nham; iham++) {
+      for (int iham = 1; iham < nham; iham++) {
 
 	/* Check array range... */
 	if (iz - iham < 0 || iz + iham >= gps->nz[ids])
@@ -400,29 +398,27 @@ void hamming_high_pass(
   gps_t *gps,
   double dz) {
 
-  double ham[NZ], pt[NZ], wsum;
-
-  int ids, iham, iz, nham;
+  double ham[NZ], pt[NZ];
 
   /* Loop over profiles... */
-  for (ids = 0; ids < gps->nds; ids++) {
+  for (int ids = 0; ids < gps->nds; ids++) {
 
     /* Calculate Hamming window coefficients... */
-    nham = (int) (dz / fabs((gps->z[ids][0] - gps->z[ids][gps->nz[ids] - 1])
+    int nham = (int) (dz / fabs((gps->z[ids][0] - gps->z[ids][gps->nz[ids] - 1])
 			    / (gps->nz[ids] - 1.0)) + 0.5);
     nham = GSL_MAX(GSL_MIN(nham, NZ), 2);
-    for (iham = 0; iham < nham; iham++)
+    for (int iham = 0; iham < nham; iham++)
       ham[iham] = 0.54 + 0.46 * cos(M_PI * iham / (nham - 1.0));
 
     /* Loop over altitudes... */
-    for (iz = 0; iz < gps->nz[ids]; iz++) {
+    for (int iz = 0; iz < gps->nz[ids]; iz++) {
 
       /* Initialize... */
       pt[iz] = ham[0] * gps->pt[ids][iz];
-      wsum = ham[0];
+      double wsum = ham[0];
 
       /* Loop over filter window... */
-      for (iham = 1; iham < nham; iham++) {
+      for (int iham = 1; iham < nham; iham++) {
 
 	/* Check array range... */
 	if (iz - iham < 0 || iz + iham >= gps->nz[ids])
@@ -444,7 +440,7 @@ void hamming_high_pass(
     }
 
     /* Set perturbation... */
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       gps->pt[ids][iz] = pt[iz];
   }
 }
