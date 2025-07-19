@@ -99,38 +99,33 @@ void gauss(
   double dx,
   double dy) {
 
-  double dlat, dlon, w, wsum;
-
-  int ids, ids2, iz;
-
   /* Loop over profiles... */
-  for (ids = 0; ids < gps->nds; ids++) {
+  for (int ids = 0; ids < gps->nds; ids++) {
 
     /* Initialize... */
-    wsum = 0;
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+    double wsum = 0;
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       gps->pt[ids][iz] = 0;
 
     /* Calculate lon-lat standard deviations... */
-    dlat = dx * 180. / (M_PI * RE) / 2.3548;
-    dlon = dy * 180. / 2.3548
+    const double dlat = dx * 180. / (M_PI * RE) / 2.3548;
+    const double dlon = dy * 180. / 2.3548
       / (M_PI * RE * cos(gps->lat[ids][gps->nz[ids] / 2] * M_PI / 180.));
 
     /* Calculate mean temperature... */
-    for (ids2 = 0; ids2 < gps->nds; ids2++) {
-      w = exp(-0.5 * gsl_pow_2((gps->lon[ids][gps->nz[ids] / 2]
+    for (int ids2 = 0; ids2 < gps->nds; ids2++) {
+      const double w = exp(-0.5 * gsl_pow_2((gps->lon[ids][gps->nz[ids] / 2]
 				- gps->lon[ids2][gps->nz[ids2] / 2]) / dlon)
 	      - 0.5 * gsl_pow_2((gps->lat[ids][gps->nz[ids] / 2]
-				 -
-				 gps->lat[ids2][gps->nz[ids2] / 2]) / dlat));
+				 - gps->lat[ids2][gps->nz[ids2] / 2]) / dlat));
       wsum += w;
-      for (iz = 0; iz < gps->nz[ids]; iz++)
+      for (int iz = 0; iz < gps->nz[ids]; iz++)
 	gps->pt[ids][iz] += w * gps->t[ids2][iz];
     }
 
     /* Normalize... */
     if (wsum > 0)
-      for (iz = 0; iz < gps->nz[ids]; iz++)
+      for (int iz = 0; iz < gps->nz[ids]; iz++)
 	gps->pt[ids][iz] = gps->t[ids][iz] - gps->pt[ids][iz] / wsum;
   }
 }
@@ -145,23 +140,21 @@ void grid_gps(
 
   double lat[NZ], lon[NZ], p[NZ], pt[NZ], t[NZ], wv[NZ], z[NZ];
 
-  int ids, iz, iz2;
-
   /* Check number of altitudes... */
   if (nz > NZ)
     ERRMSG("Too many altitudes!");
 
   /* Loop over profiles... */
-  for (ids = 0; ids < gps->nds; ids++) {
+  for (int ids = 0; ids < gps->nds; ids++) {
 
     /* Loop over altitudes... */
-    for (iz = 0; iz < nz; iz++) {
+    for (int iz = 0; iz < nz; iz++) {
 
       /* Set altitude... */
       z[iz] = LIN(0.0, zmin, nz - 1.0, zmax, (double) iz);
 
       /* Get index... */
-      iz2 = locate_irr(gps->z[ids], gps->nz[ids], z[iz]);
+      const int iz2 = locate_irr(gps->z[ids], gps->nz[ids], z[iz]);
 
       /* Interpolate... */
       lon[iz] = LIN(gps->z[ids][iz2], gps->lon[ids][iz2],
@@ -180,7 +173,7 @@ void grid_gps(
 
     /* Copy data... */
     gps->nz[ids] = nz;
-    for (iz = 0; iz < nz; iz++) {
+    for (int iz = 0; iz < nz; iz++) {
       gps->z[ids][iz] = z[iz];
       gps->lon[ids][iz] = lon[iz];
       gps->lat[ids][iz] = lat[iz];
@@ -262,16 +255,14 @@ void intpol_met_3d(
   double wy,
   double *var) {
 
-  double aux00, aux01, aux10, aux11;
-
   /* Interpolate vertically... */
-  aux00 = wp * (array[ix][iy][ip] - array[ix][iy][ip + 1])
+  double aux00 = wp * (array[ix][iy][ip] - array[ix][iy][ip + 1])
     + array[ix][iy][ip + 1];
-  aux01 = wp * (array[ix][iy + 1][ip] - array[ix][iy + 1][ip + 1])
+  double aux01 = wp * (array[ix][iy + 1][ip] - array[ix][iy + 1][ip + 1])
     + array[ix][iy + 1][ip + 1];
-  aux10 = wp * (array[ix + 1][iy][ip] - array[ix + 1][iy][ip + 1])
+  double aux10 = wp * (array[ix + 1][iy][ip] - array[ix + 1][iy][ip + 1])
     + array[ix + 1][iy][ip + 1];
-  aux11 = wp * (array[ix + 1][iy + 1][ip] - array[ix + 1][iy + 1][ip + 1])
+  double aux11 = wp * (array[ix + 1][iy + 1][ip] - array[ix + 1][iy + 1][ip + 1])
     + array[ix + 1][iy + 1][ip + 1];
 
   /* Interpolate horizontally... */
@@ -289,23 +280,19 @@ void intpol_met_space(
   double lat,
   double *t) {
 
-  double wp, wx, wy;
-
-  int ip, ix, iy;
-
   /* Check longitude... */
   if (met->lon[met->nx - 1] > 180 && lon < 0)
     lon += 360;
 
   /* Get indices... */
-  ip = locate_irr(met->p, met->np, p);
-  ix = locate_reg(met->lon, met->nx, lon);
-  iy = locate_reg(met->lat, met->ny, lat);
+  const int ip = locate_irr(met->p, met->np, p);
+  const int ix = locate_reg(met->lon, met->nx, lon);
+  const int iy = locate_reg(met->lat, met->ny, lat);
 
   /* Get weights... */
-  wp = (met->p[ip + 1] - p) / (met->p[ip + 1] - met->p[ip]);
-  wx = (met->lon[ix + 1] - lon) / (met->lon[ix + 1] - met->lon[ix]);
-  wy = (met->lat[iy + 1] - lat) / (met->lat[iy + 1] - met->lat[iy]);
+  const double wp = (met->p[ip + 1] - p) / (met->p[ip + 1] - met->p[ip]);
+  const double wx = (met->lon[ix + 1] - lon) / (met->lon[ix + 1] - met->lon[ix]);
+  const double wy = (met->lat[iy + 1] - lat) / (met->lat[iy + 1] - met->lat[iy]);
 
   /* Interpolate... */
   intpol_met_3d(met->t, ip, ix, iy, wp, wx, wy, t);
@@ -322,14 +309,14 @@ void intpol_met_time(
   double lat,
   double *t) {
 
-  double t0, t1, wt;
+  double t0, t1;
 
   /* Spatial interpolation... */
   intpol_met_space(met0, p, lon, lat, &t0);
   intpol_met_space(met1, p, lon, lat, &t1);
 
   /* Get weighting factor... */
-  wt = (met1->time - ts) / (met1->time - met0->time);
+  const double wt = (met1->time - ts) / (met1->time - met0->time);
 
   /* Interpolate... */
   *t = wt * (t0 - t1) + t1;
@@ -455,20 +442,18 @@ void poly(
 
   double bg[NZ];
 
-  int ids, iz;
-
   /* Loop over profiles... */
-  for (ids = 0; ids < gps->nds; ids++) {
+  for (int ids = 0; ids < gps->nds; ids++) {
 
     /* Set profile... */
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       bg[iz] = gps->pt[ids][iz];
 
     /* Polynomial interpolation... */
     poly_help(gps->z[ids], bg, gps->nz[ids], dim, zmin, zmax);
 
     /* Remove background... */
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       gps->pt[ids][iz] -= bg[iz];
   }
 }
