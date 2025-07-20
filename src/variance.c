@@ -48,7 +48,7 @@ int main(
 
   gps_t *gps;
 
-  FILE *in, *out;
+  FILE *out;
 
   static double lon0, lon1, lat0, lat1, z0, z1, mean[GX][GY][GZ],
     min[GX][GY][GZ], max[GX][GY][GZ], var[GX][GY][GZ],
@@ -96,6 +96,7 @@ int main(
   for (iarg = 4; iarg < argc; iarg++) {
 
     /* Read gps data... */
+    FILE *in;
     if (!(in = fopen(argv[iarg], "r")))
       continue;
     else {

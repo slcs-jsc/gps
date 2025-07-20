@@ -34,9 +34,7 @@ int main(
   char *argv[]) {
 
   gps_t *gps;
-
-  FILE *in;
-
+  
   double clp_tlon[NDS], clp_tlat[NDS], wmo_1st_tlon[NDS], wmo_1st_tlat[NDS],
     wmo_2nd_tlon[NDS], wmo_2nd_tlat[NDS];
 
@@ -52,14 +50,16 @@ int main(
     ERRMSG("Give parameters: <ctl> <out.nc> <gps1.nc> [<gps2.nc> ...]");
 
   /* Read individual GPS-RO data files... */
-  for (int iarg = 3; iarg < argc; iarg++)
+  for (int iarg = 3; iarg < argc; iarg++) {
+    FILE *in;
     if (!(in = fopen(argv[iarg], "r")))
       continue;
     else {
       fclose(in);
       read_gps_prof(argv[iarg], gps);
     }
-
+  }
+  
   /* Check number of profiles... */
   if (gps->nds <= 0)
     ERRMSG("No profiles found!");

@@ -31,7 +31,7 @@ int main(
 
   gps_t *gps;
 
-  FILE *in, *out;
+  FILE *out;
 
   static double ptmin, ptmax, se[NZ], sz[NZ], w, wmax, wsum2 = 1.0, var;
 
@@ -70,6 +70,7 @@ int main(
   for (iarg = 4; iarg < argc; iarg++) {
 
     /* Read gps data... */
+    FILE *in;
     if (!(in = fopen(argv[iarg], "r")))
       continue;
     else {

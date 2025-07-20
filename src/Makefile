@@ -6,7 +6,7 @@
 EXC = events map perturbation prof response tropo variance
 
 # Tests...
-TESTS = tropo_test
+TESTS = pert_test tropo_test
 
 # Installation directory...
 DESTDIR ?= ../bin

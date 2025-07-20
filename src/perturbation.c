@@ -34,9 +34,7 @@ int main(
   char *argv[]) {
 
   gps_t *gps;
-
-  FILE *in;
-
+  
   char metbase[LEN];
 
   double dt_met, gauss_dx, gauss_dy, grid_zmin, grid_zmax, ham_dz, ham_dz2,
@@ -66,13 +64,15 @@ int main(
   poly_zmax = scan_ctl(argc, argv, "POLY_ZMAX", -1, "40", NULL);
 
   /* Read individual GPS-RO data files... */
-  for (iarg = 3; iarg < argc; iarg++)
+  for (iarg = 3; iarg < argc; iarg++) {
+    FILE *in;
     if (!(in = fopen(argv[iarg], "r")))
       continue;
     else {
       fclose(in);
       read_gps_prof(argv[iarg], gps);
     }
+  }
 
   /* Check number of profiles... */
   if (gps->nds <= 0)

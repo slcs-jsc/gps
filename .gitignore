@@ -15,4 +15,5 @@ src/*.gcno
 src/*.gcda
 src/*.gcov
 src/coverage*
+tests/pert_test/data/
 tests/tropo_test/data/
