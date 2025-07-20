@@ -34,7 +34,7 @@ int main(
   char *argv[]) {
 
   gps_t *gps;
-  
+
   double clp_tlon[NDS], clp_tlat[NDS], wmo_1st_tlon[NDS], wmo_1st_tlat[NDS],
     wmo_2nd_tlon[NDS], wmo_2nd_tlat[NDS];
 
@@ -59,7 +59,7 @@ int main(
       read_gps_prof(argv[iarg], gps);
     }
   }
-  
+
   /* Check number of profiles... */
   if (gps->nds <= 0)
     ERRMSG("No profiles found!");

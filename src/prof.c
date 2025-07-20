@@ -33,8 +33,6 @@ int main(
 
   FILE *out;
 
-  int ids, iz;
-
   /* Allocate... */
   ALLOC(gps, gps_t, 1);
 
@@ -43,7 +41,7 @@ int main(
     ERRMSG("Give parameters: <ctl> <gps.nc> <prof.tab>");
 
   /* Get control parameters... */
-  ids = (int) scan_ctl(argc, argv, "IDS", -1, "0", NULL);
+  const int ids = (int) scan_ctl(argc, argv, "IDS", -1, "0", NULL);
 
   /* Read gps data... */
   read_gps(argv[2], gps);
@@ -70,7 +68,7 @@ int main(
 	  "# $9 = tropopause height [km]\n\n");
 
   /* Write data... */
-  for (iz = 0; iz < gps->nz[ids]; iz++)
+  for (int iz = 0; iz < gps->nz[ids]; iz++)
     if (gps->z[ids][iz] > 0)
       fprintf(out, "%.2f %g %g %g %g %g %g %g %g\n",
 	      gps->time[ids], gps->z[ids][iz], gps->lon[ids][iz],

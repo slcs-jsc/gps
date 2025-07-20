@@ -33,10 +33,6 @@ int main(
 
   FILE *out;
 
-  double z;
-
-  int ids, iz;
-
   /* Allocate... */
   ALLOC(gps, gps_t, 1);
 
@@ -45,7 +41,7 @@ int main(
     ERRMSG("Give parameters: <ctl> <gps.nc> <map.tab>");
 
   /* Get control parameters... */
-  z = scan_ctl(argc, argv, "Z", -1, "20", NULL);
+  const double z = scan_ctl(argc, argv, "Z", -1, "20", NULL);
 
   /* Read gps data... */
   read_gps(argv[2], gps);
@@ -68,8 +64,8 @@ int main(
 	  "# $9 = tropopause height [km]\n\n");
 
   /* Write data... */
-  for (ids = 0; ids < gps->nds; ids++)
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+  for (int ids = 0; ids < gps->nds; ids++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       if (fabs(gps->z[ids][iz] - z) < 0.01) {
 	fprintf(out, "%.2f %g %g %g %g %g %g %g %g\n",
 		gps->time[ids], gps->z[ids][iz], gps->lon[ids][iz],

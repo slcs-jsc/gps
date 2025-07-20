@@ -61,8 +61,6 @@ void detrend_met(
 
   met_t *met0, *met1;
 
-  double t;
-
   /* Allocate... */
   ALLOC(met0, met_t, 1);
   ALLOC(met1, met_t, 1);
@@ -77,6 +75,7 @@ void detrend_met(
       get_met(metbase, dt_met, gps->time[ids], met0, met1);
 
       /* Interpolate meteorological data... */
+      double t;
       intpol_met_time(met0, met1, gps->time[ids], gps->p[ids][iz],
 		      gps->lon[ids][iz], gps->lat[ids][iz], &t);
 
@@ -113,9 +112,13 @@ void gauss(
     /* Calculate mean temperature... */
     for (int ids2 = 0; ids2 < gps->nds; ids2++) {
       const double w = exp(-0.5 * gsl_pow_2((gps->lon[ids][gps->nz[ids] / 2]
-				- gps->lon[ids2][gps->nz[ids2] / 2]) / dlon)
-	      - 0.5 * gsl_pow_2((gps->lat[ids][gps->nz[ids] / 2]
-				 - gps->lat[ids2][gps->nz[ids2] / 2]) / dlat));
+					     -
+					     gps->lon[ids2][gps->nz[ids2] /
+							    2]) / dlon)
+			   - 0.5 * gsl_pow_2((gps->lat[ids][gps->nz[ids] / 2]
+					      -
+					      gps->lat[ids2][gps->nz[ids2] /
+							     2]) / dlat));
       wsum += w;
       for (int iz = 0; iz < gps->nz[ids]; iz++)
 	gps->pt[ids][iz] += w * gps->t[ids2][iz];
@@ -260,7 +263,8 @@ void intpol_met_3d(
     + array[ix][iy + 1][ip + 1];
   double aux10 = wp * (array[ix + 1][iy][ip] - array[ix + 1][iy][ip + 1])
     + array[ix + 1][iy][ip + 1];
-  double aux11 = wp * (array[ix + 1][iy + 1][ip] - array[ix + 1][iy + 1][ip + 1])
+  double aux11 =
+    wp * (array[ix + 1][iy + 1][ip] - array[ix + 1][iy + 1][ip + 1])
     + array[ix + 1][iy + 1][ip + 1];
 
   /* Interpolate horizontally... */
@@ -289,8 +293,10 @@ void intpol_met_space(
 
   /* Get weights... */
   const double wp = (met->p[ip + 1] - p) / (met->p[ip + 1] - met->p[ip]);
-  const double wx = (met->lon[ix + 1] - lon) / (met->lon[ix + 1] - met->lon[ix]);
-  const double wy = (met->lat[iy + 1] - lat) / (met->lat[iy + 1] - met->lat[iy]);
+  const double wx =
+    (met->lon[ix + 1] - lon) / (met->lon[ix + 1] - met->lon[ix]);
+  const double wy =
+    (met->lat[iy + 1] - lat) / (met->lat[iy + 1] - met->lat[iy]);
 
   /* Interpolate... */
   intpol_met_3d(met->t, ip, ix, iy, wp, wx, wy, t);
@@ -332,8 +338,9 @@ void hamming_low_pass(
   for (int ids = 0; ids < gps->nds; ids++) {
 
     /* Calculate Hamming window coefficients... */
-    int nham = (int) (dz / fabs((gps->z[ids][0] - gps->z[ids][gps->nz[ids] - 1])
-			    / (gps->nz[ids] - 1.0)) + 0.5);
+    int nham =
+      (int) (dz / fabs((gps->z[ids][0] - gps->z[ids][gps->nz[ids] - 1])
+		       / (gps->nz[ids] - 1.0)) + 0.5);
     nham = GSL_MAX(GSL_MIN(nham, NZ), 2);
     for (int iham = 0; iham < nham; iham++)
       ham[iham] = 0.54 + 0.46 * cos(M_PI * iham / (nham - 1.0));
@@ -389,8 +396,9 @@ void hamming_high_pass(
   for (int ids = 0; ids < gps->nds; ids++) {
 
     /* Calculate Hamming window coefficients... */
-    int nham = (int) (dz / fabs((gps->z[ids][0] - gps->z[ids][gps->nz[ids] - 1])
-			    / (gps->nz[ids] - 1.0)) + 0.5);
+    int nham =
+      (int) (dz / fabs((gps->z[ids][0] - gps->z[ids][gps->nz[ids] - 1])
+		       / (gps->nz[ids] - 1.0)) + 0.5);
     nham = GSL_MAX(GSL_MIN(nham, NZ), 2);
     for (int iham = 0; iham < nham; iham++)
       ham[iham] = 0.54 + 0.46 * cos(M_PI * iham / (nham - 1.0));
@@ -472,17 +480,17 @@ void poly_help(
 
   double chisq, xx2[NZ], yy2[NZ];
 
-  size_t i, i2, n2 = 0;
+  size_t n2 = 0;
 
   /* Check for nan... */
-  for (i = 0; i < (size_t) n; i++)
+  for (size_t i = 0; i < (size_t) n; i++)
     if (xx[i] >= xmin && xx[i] <= xmax && gsl_finite(yy[i])) {
       xx2[n2] = xx[i];
       yy2[n2] = yy[i];
       n2++;
     }
   if ((int) n2 < dim) {
-    for (i = 0; i < (size_t) n; i++)
+    for (size_t i = 0; i < (size_t) n; i++)
       yy[i] = GSL_NAN;
     return;
   }
@@ -496,14 +504,14 @@ void poly_help(
   y = gsl_vector_alloc((size_t) n2);
 
   /* Compute polynomial fit... */
-  for (i = 0; i < (size_t) n2; i++) {
+  for (size_t i = 0; i < (size_t) n2; i++) {
     gsl_vector_set(x, i, xx2[i]);
     gsl_vector_set(y, i, yy2[i]);
-    for (i2 = 0; i2 < (size_t) dim; i2++)
+    for (size_t i2 = 0; i2 < (size_t) dim; i2++)
       gsl_matrix_set(X, i, i2, pow(gsl_vector_get(x, i), (double) i2));
   }
   gsl_multifit_linear(X, y, c, cov, &chisq, work);
-  for (i = 0; i < (size_t) n; i++)
+  for (size_t i = 0; i < (size_t) n; i++)
     yy[i] = gsl_poly_eval(c->data, (int) dim, xx[i]);
 
   /* Free... */
@@ -527,7 +535,7 @@ void read_gps_prof(
 
   int ncid, dimid, varid;
 
-  size_t iz, nz;
+  size_t nz;
 
   /* Open netCDF file... */
   printf("Read GPS-RO profile: %s\n", filename);
@@ -567,7 +575,7 @@ void read_gps_prof(
     NC(nc_get_var_double(ncid, varid, gps->wv[gps->nds]));
 
   /* Check altitude range... */
-  for (iz = 0; iz < nz; iz++)
+  for (size_t iz = 0; iz < nz; iz++)
     if (gps->p[gps->nds][iz] != -999 && gps->t[gps->nds][iz] != -999) {
       zmin = GSL_MIN(zmin, gps->z[gps->nds][iz]);
       zmax = GSL_MAX(zmax, gps->z[gps->nds][iz]);
@@ -578,7 +586,7 @@ void read_gps_prof(
   }
 
   /* Check data... */
-  for (iz = 0; iz < nz; iz++)
+  for (size_t iz = 0; iz < nz; iz++)
     if (gps->lon[gps->nds][iz] == -999 ||
 	gps->lat[gps->nds][iz] == -999 ||
 	gps->p[gps->nds][iz] == -999 ||
@@ -591,11 +599,11 @@ void read_gps_prof(
     }
 
   /* Convert temperature... */
-  for (iz = 0; iz < nz; iz++)
+  for (size_t iz = 0; iz < nz; iz++)
     gps->t[gps->nds][iz] += 273.15;
 
   /* Convert water vapor... */
-  for (iz = 0; iz < nz; iz++)
+  for (size_t iz = 0; iz < nz; iz++)
     gps->wv[gps->nds][iz] /= gps->p[gps->nds][iz];
 
   /* Close file... */
@@ -685,7 +693,7 @@ void read_met(
 
   char tstr[10];
 
-  int ip, dimid, ncid, varid, year, mon, day, hour;
+  int dimid, ncid, varid, year, mon, day, hour;
 
   size_t np, nx, ny;
 
@@ -739,14 +747,14 @@ void read_met(
   /* Read pressure levels from file... */
   NC(nc_inq_varid(ncid, "lev", &varid));
   NC(nc_get_var_double(ncid, varid, met->p));
-  for (ip = 0; ip < met->np; ip++)
+  for (int ip = 0; ip < met->np; ip++)
     met->p[ip] /= 100.;
 
   /* Extrapolate data for lower boundary... */
   read_met_extrapolate(met);
 
   /* Check ordering of pressure levels... */
-  for (ip = 1; ip < met->np; ip++)
+  for (int ip = 1; ip < met->np; ip++)
     if (met->p[ip - 1] < met->p[ip])
       ERRMSG("Pressure levels must be descending!");
 
@@ -762,13 +770,12 @@ void read_met(
 void read_met_extrapolate(
   met_t *met) {
 
-  int ip0;
-
   /* Loop over columns... */
   for (int ix = 0; ix < met->nx; ix++)
     for (int iy = 0; iy < met->ny; iy++) {
 
       /* Find lowest valid data point... */
+      int ip0;
       for (ip0 = met->np - 1; ip0 >= 0; ip0--)
 	if (!gsl_finite(met->t[ix][iy][ip0]))
 	  break;
@@ -886,8 +893,6 @@ void spline(
 void tropopause(
   gps_t *gps) {
 
-  int iz, iz2, okay;
-
   /* Loop over profiles... */
   for (int ids = 0; ids < gps->nds; ids++) {
 
@@ -899,10 +904,10 @@ void tropopause(
       8 - 4 * fabs(cos((90 - gps->lat[ids][gps->nz[ids] / 2]) * M_PI / 180));
 
     /* Search tropopause (WMO definition)... */
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       if (gps->z[ids][iz] >= zmin && gps->z[ids][iz] <= 20.0) {
-	okay = 1;
-	for (iz2 = iz + 1; iz2 < gps->nz[ids]; iz2++)
+	int okay = 1;
+	for (int iz2 = iz + 1; iz2 < gps->nz[ids]; iz2++)
 	  if (gps->z[ids][iz2] - gps->z[ids][iz] <= 2.0)
 	    if (!gsl_finite(gps->t[ids][iz]) ||
 		!gsl_finite(gps->t[ids][iz2]) ||
@@ -1063,7 +1068,7 @@ void write_gps(
 
   static double help[NDS * NZ];
 
-  int ids, iz, ncid, dimid[2], time_id, z_id, lon_id, lat_id, p_id, t_id,
+  int ncid, dimid[2], time_id, z_id, lon_id, lat_id, p_id, t_id,
     pt_id, wv_id, th_id, nzmax = 0;
 
   /* Create netCDF file... */
@@ -1072,7 +1077,7 @@ void write_gps(
 
   /* Set dimensions... */
   NC(nc_def_dim(ncid, "NDS", (size_t) gps->nds, &dimid[0]));
-  for (ids = 0; ids < gps->nds; ids++)
+  for (int ids = 0; ids < gps->nds; ids++)
     nzmax = GSL_MAX(nzmax, gps->nz[ids]);
   NC(nc_def_dim(ncid, "NZ", (size_t) nzmax, &dimid[1]));
 
@@ -1096,32 +1101,32 @@ void write_gps(
   /* Write data... */
   NC(nc_put_var_double(ncid, time_id, gps->time));
   NC(nc_put_var_double(ncid, th_id, gps->th));
-  for (ids = 0; ids < gps->nds; ids++)
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+  for (int ids = 0; ids < gps->nds; ids++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       help[ids * nzmax + iz] = gps->z[ids][iz];
   NC(nc_put_var_double(ncid, z_id, help));
-  for (ids = 0; ids < gps->nds; ids++)
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+  for (int ids = 0; ids < gps->nds; ids++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       help[ids * nzmax + iz] = gps->lon[ids][iz];
   NC(nc_put_var_double(ncid, lon_id, help));
-  for (ids = 0; ids < gps->nds; ids++)
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+  for (int ids = 0; ids < gps->nds; ids++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       help[ids * nzmax + iz] = gps->lat[ids][iz];
   NC(nc_put_var_double(ncid, lat_id, help));
-  for (ids = 0; ids < gps->nds; ids++)
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+  for (int ids = 0; ids < gps->nds; ids++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       help[ids * nzmax + iz] = gps->p[ids][iz];
   NC(nc_put_var_double(ncid, p_id, help));
-  for (ids = 0; ids < gps->nds; ids++)
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+  for (int ids = 0; ids < gps->nds; ids++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       help[ids * nzmax + iz] = gps->t[ids][iz];
   NC(nc_put_var_double(ncid, t_id, help));
-  for (ids = 0; ids < gps->nds; ids++)
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+  for (int ids = 0; ids < gps->nds; ids++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       help[ids * nzmax + iz] = gps->wv[ids][iz];
   NC(nc_put_var_double(ncid, wv_id, help));
-  for (ids = 0; ids < gps->nds; ids++)
-    for (iz = 0; iz < gps->nz[ids]; iz++)
+  for (int ids = 0; ids < gps->nds; ids++)
+    for (int iz = 0; iz < gps->nz[ids]; iz++)
       help[ids * nzmax + iz] = gps->pt[ids][iz];
   NC(nc_put_var_double(ncid, pt_id, help));
 
