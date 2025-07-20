@@ -9,9 +9,10 @@ src/map
 src/perturbation
 src/prof
 src/response
-src/tropopause
+src/tropo
 src/variance
 src/*.gcno
 src/*.gcda
 src/*.gcov
 src/coverage*
+tests/tropo_test/data/

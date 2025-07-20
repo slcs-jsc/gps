@@ -3,7 +3,10 @@
 # -----------------------------------------------------------------------------
 
 # Executables...
-EXC = events map perturbation prof response tropopause variance
+EXC = events map perturbation prof response tropo variance
+
+# Tests...
+TESTS = tropo_test
 
 # Installation directory...
 DESTDIR ?= ../bin
@@ -82,6 +85,14 @@ libgps.o: libgps.c libgps.h Makefile
 
 jurassic.o: jurassic.c jurassic.h Makefile
 	$(CC) $(CFLAGS) -c -o jurassic.o jurassic.c
+
+check: $(TESTS)
+
+$(TESTS): all
+	@(echo "\n===== Running \"$@\" ... =====") ; \
+	  cd ../tests/$@ ; ./run.sh \
+	  && (echo "\n===== Test \"$@\" passed! =====") \
+	  || (echo "\n===== Test \"$@\" failed! =====" ; exit 1)
 
 clean:
 	rm -rf $(EXC) *.o *.gcda *.gcno *.gcov coverage* *~
