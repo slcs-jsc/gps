@@ -533,7 +533,7 @@ void read_gps_prof(
 
   double t0, t1, zmin = 1e100, zmax = -1e100;
 
-  int ncid, dimid, varid;
+  int ncid, dimid, dimid2, varid;
 
   size_t nz;
 
@@ -549,24 +549,36 @@ void read_gps_prof(
     ERRMSG("Too many altitudes!");
 
   /* Check data quality flag... */
-  NC(nc_get_att_text(ncid, NC_GLOBAL, "bad", bad));
-  if (bad[0] != '0') {
-    NC(nc_close(ncid));
-    return;
-  }
+  if (nc_get_att_text(ncid, NC_GLOBAL, "bad", bad) == NC_NOERR)
+    if (bad[0] != '0') {
+      NC(nc_close(ncid));
+      return;
+    }
 
   /* Get time... */
-  NC(nc_get_att_double(ncid, NC_GLOBAL, "start_time", &t0));
-  NC(nc_get_att_double(ncid, NC_GLOBAL, "stop_time", &t1));
-  gps->time[gps->nds] = 0.5 * (t0 + t1) - 630720000.0;
+  if (nc_get_att_double(ncid, NC_GLOBAL, "start_time", &t0) == NC_NOERR
+      && nc_get_att_double(ncid, NC_GLOBAL, "stop_time", &t1) == NC_NOERR)
+    gps->time[gps->nds] = 0.5 * (t0 + t1) - 630720000.0;
+  else {
+    NC(nc_inq_varid(ncid, "Time", &varid));
+    NC(nc_get_var_double(ncid, varid, &gps->time[gps->nds]));
+  }
 
   /* Get data... */
   NC(nc_inq_varid(ncid, "MSL_alt", &varid));
   NC(nc_get_var_double(ncid, varid, gps->z[gps->nds]));
   NC(nc_inq_varid(ncid, "Lon", &varid));
   NC(nc_get_var_double(ncid, varid, gps->lon[gps->nds]));
+  NC(nc_inq_var(ncid, varid, NULL, NULL, NULL, &dimid2, NULL));
+  if (dimid2 != dimid)
+    for (size_t iz = 1; iz < nz; iz++)
+      gps->lon[gps->nds][iz] = gps->lon[gps->nds][0];
   NC(nc_inq_varid(ncid, "Lat", &varid));
   NC(nc_get_var_double(ncid, varid, gps->lat[gps->nds]));
+  NC(nc_inq_var(ncid, varid, NULL, NULL, NULL, &dimid2, NULL));
+  if (dimid2 != dimid)
+    for (size_t iz = 1; iz < nz; iz++)
+      gps->lat[gps->nds][iz] = gps->lat[gps->nds][0];
   NC(nc_inq_varid(ncid, "Pres", &varid));
   NC(nc_get_var_double(ncid, varid, gps->p[gps->nds]));
   NC(nc_inq_varid(ncid, "Temp", &varid));
