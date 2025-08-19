@@ -562,6 +562,7 @@ void read_gps_prof(
   else {
     NC(nc_inq_varid(ncid, "Time", &varid));
     NC(nc_get_var_double(ncid, varid, &gps->time[gps->nds]));
+    gps->time[gps->nds] -= 630720000.0;
   }
 
   /* Get data... */
