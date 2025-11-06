@@ -16,6 +16,7 @@ GPS/RO observations.
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/slcs-jsc/gps)
 [![license](https://img.shields.io/github/license/slcs-jsc/gps.svg)](https://github.com/slcs-jsc/gps/blob/master/COPYING)
 [![doi](https://zenodo.org/badge/DOI/10.5281/zenodo.15867927.svg)](https://doi.org/10.5281/zenodo.15867927)
+[![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/slcs-jsc/gps/)](https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/slcs-jsc/gps)
 
 ## Installation
 
