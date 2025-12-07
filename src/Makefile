@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 
 # Executables...
-EXC = events map perturbation prof response tropo variance
+EXC = day2doy doy2day events jsec2time map perturbation prof response time2jsec tropo variance
 
 # Tests...
 TESTS = pert_test tropo_test
