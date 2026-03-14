@@ -1,0 +1,23 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,303,56,329"/>
+<area shape="rect" id="node2" href="$libgps_8c.html#a9f541f179ae93d350b55f798a815f44f" title="Detrending by means of meteo data." alt="" coords="127,100,222,127"/>
+<area shape="rect" id="node12" href="$libgps_8c.html#a49c946a56e576c35824ef7f8c4bac49f" title="Calculate horizontal Gaussian mean to extract perturbations." alt="" coords="146,151,203,177"/>
+<area shape="rect" id="node13" href="$libgps_8c.html#a6b51f6c612e246ff8a5c4b11fa01b173" title="Interpolate GPS data to regular altitude grid." alt="" coords="139,201,210,228"/>
+<area shape="rect" id="node14" href="$libgps_8c.html#aa52feecb5ab6f4206d043ddb24acf930" title="Apply vertical Hamming filter to reduce noise." alt="" coords="104,252,245,279"/>
+<area shape="rect" id="node15" href="$libgps_8c.html#a9ecbe649ddc94873033ab41be8e1d2cf" title="Apply vertical Hamming filter to extract perturbations." alt="" coords="106,303,243,329"/>
+<area shape="rect" id="node16" href="$libgps_8c.html#a660ebeb431ddd1c5161339fd01f49d51" title="Remove polynomial fit from perturbation profile." alt="" coords="152,353,197,380"/>
+<area shape="rect" id="node18" href="$libgps_8c.html#aa08f573c9f861981c11dccd80dc9717f" title="Read GPS&#45;RO profile." alt="" coords="123,404,227,431"/>
+<area shape="rect" id="node19" href="$libgps_8c.html#ab76867a4d620f33feaa6f012d2f48c67" title="Find tropopause height." alt="" coords="131,455,218,481"/>
+<area shape="rect" id="node20" href="$libgps_8c.html#a22df857a70faf8200bd9c387de0746a0" title="Write GPS&#45;RO data file." alt="" coords="135,505,214,532"/>
+<area shape="rect" id="node3" href="$libgps_8c.html#a977229369fba42322618efc8d96bdebe" title="Get meteorological data for given timestep." alt="" coords="316,63,385,89"/>
+<area shape="rect" id="node9" href="$libgps_8c.html#a56ea1560ec82e2e130c0f8819273d6c1" title="Temporal interpolation of meteorological data." alt="" coords="293,139,408,165"/>
+<area shape="rect" id="node4" href="$libgps_8c.html#aa0c58f85ea7abc175737176da82f2939" title="Get meteorological data for timestep." alt="" coords="468,12,568,39"/>
+<area shape="rect" id="node5" href="$libgps_8c.html#a4b7536f3487319c9d0650a6bfbbf4745" title="Read meteorological data file." alt="" coords="480,63,556,89"/>
+<area shape="rect" id="node6" href="$libgps_8c.html#a089d9c0099e3fc6944c2a48667362ca0" title="Extrapolate meteorological data at lower boundary." alt="" coords="628,5,775,32"/>
+<area shape="rect" id="node7" href="$libgps_8c.html#ab4bf3e7235a161e9845cb0cf68aedc5c" title="Read and convert variable from meteorological data file." alt="" coords="648,56,755,83"/>
+<area shape="rect" id="node8" href="$libgps_8c.html#a38f91765df8eb0a66fb3a6408dca0600" title="Create meteorological data with periodic boundary conditions." alt="" coords="637,107,765,133"/>
+<area shape="rect" id="node10" href="$libgps_8c.html#a1a79c829de505451c3e0c80fface9f43" title="Spatial interpolation of meteorological data." alt="" coords="456,145,580,172"/>
+<area shape="rect" id="node11" href="$libgps_8c.html#a6f092fadf1adc9dc38f37eb0cb572703" title="Linear interpolation of 3&#45;D meteorological data." alt="" coords="650,157,753,184"/>
+<area shape="rect" id="node17" href="$libgps_8c.html#aae7607dd4621eaa793cfa24ff6cbe71a" title="Auxiliary function for polynomial interpolation." alt="" coords="313,353,389,380"/>
+<area shape="rect" id="node21" href="$libgps_8c.html#a832132b5251582419a6ca58fe3615f1c" title="Add variable to netCDF file." alt="" coords="317,505,385,532"/>
+</map>
