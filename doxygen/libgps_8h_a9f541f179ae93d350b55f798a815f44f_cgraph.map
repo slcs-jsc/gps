@@ -1,0 +1,12 @@
+<map id="detrend_met" name="detrend_met">
+<area shape="rect" id="node1" title="Detrending by means of meteo data." alt="" coords="5,95,100,121"/>
+<area shape="rect" id="node2" href="$libgps_8c.html#a977229369fba42322618efc8d96bdebe" title="Get meteorological data for given timestep." alt="" coords="171,63,240,89"/>
+<area shape="rect" id="node8" href="$libgps_8c.html#a56ea1560ec82e2e130c0f8819273d6c1" title="Temporal interpolation of meteorological data." alt="" coords="148,120,263,147"/>
+<area shape="rect" id="node3" href="$libgps_8c.html#aa0c58f85ea7abc175737176da82f2939" title="Get meteorological data for timestep." alt="" coords="323,12,423,39"/>
+<area shape="rect" id="node4" href="$libgps_8c.html#a4b7536f3487319c9d0650a6bfbbf4745" title="Read meteorological data file." alt="" coords="335,63,411,89"/>
+<area shape="rect" id="node5" href="$libgps_8c.html#a089d9c0099e3fc6944c2a48667362ca0" title="Extrapolate meteorological data at lower boundary." alt="" coords="483,5,629,32"/>
+<area shape="rect" id="node6" href="$libgps_8c.html#ab4bf3e7235a161e9845cb0cf68aedc5c" title="Read and convert variable from meteorological data file." alt="" coords="503,56,609,83"/>
+<area shape="rect" id="node7" href="$libgps_8c.html#a38f91765df8eb0a66fb3a6408dca0600" title="Create meteorological data with periodic boundary conditions." alt="" coords="492,107,620,133"/>
+<area shape="rect" id="node9" href="$libgps_8c.html#a1a79c829de505451c3e0c80fface9f43" title="Spatial interpolation of meteorological data." alt="" coords="311,132,435,159"/>
+<area shape="rect" id="node10" href="$libgps_8c.html#a6f092fadf1adc9dc38f37eb0cb572703" title="Linear interpolation of 3&#45;D meteorological data." alt="" coords="505,157,607,184"/>
+</map>
