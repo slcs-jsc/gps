@@ -527,7 +527,9 @@ void poly_help(
 
 void read_gps_prof(
   char *filename,
-  gps_t *gps) {
+  gps_t *gps,
+  double prof_zmin_max,
+  double prof_zmax_min) {
 
   char bad[10];
 
@@ -593,7 +595,7 @@ void read_gps_prof(
       zmin = GSL_MIN(zmin, gps->z[gps->nds][iz]);
       zmax = GSL_MAX(zmax, gps->z[gps->nds][iz]);
     }
-  if (zmin > 5 || zmax < 35) {
+  if (zmin > prof_zmin_max || zmax < prof_zmax_min) {
     NC(nc_close(ncid));
     return;
   }

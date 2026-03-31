@@ -54,6 +54,10 @@ int main(
   const double ham_dz = scan_ctl(argc, argv, "HAM_DZ", -1, "-999", NULL);
   const double ham_dz2 = scan_ctl(argc, argv, "HAM_DZ2", -1, "-999", NULL);
   scan_ctl(argc, argv, "METBASE", -1, "", metbase);
+  const double prof_zmax_min =
+    scan_ctl(argc, argv, "PROF_ZMAX_MIN", -1, "35", NULL);
+  const double prof_zmin_max =
+    scan_ctl(argc, argv, "PROF_ZMIN_MAX", -1, "5", NULL);
   const int poly_dim = (int) scan_ctl(argc, argv, "POLY_DIM", -1, "5", NULL);
   const double poly_zmin = scan_ctl(argc, argv, "POLY_ZMIN", -1, "0", NULL);
   const double poly_zmax = scan_ctl(argc, argv, "POLY_ZMAX", -1, "40", NULL);
@@ -65,7 +69,7 @@ int main(
       continue;
     else {
       fclose(in);
-      read_gps_prof(argv[iarg], gps);
+      read_gps_prof(argv[iarg], gps, prof_zmin_max, prof_zmax_min);
     }
   }
 

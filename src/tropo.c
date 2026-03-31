@@ -49,6 +49,12 @@ int main(
   if (argc < 4)
     ERRMSG("Give parameters: <ctl> <out.nc> <gps1.nc> [<gps2.nc> ...]");
 
+  /* Get control parameters... */
+  const double prof_zmax_min =
+    scan_ctl(argc, argv, "PROF_ZMAX_MIN", -1, "35", NULL);
+  const double prof_zmin_max =
+    scan_ctl(argc, argv, "PROF_ZMIN_MAX", -1, "5", NULL);
+
   /* Read individual GPS-RO data files... */
   for (int iarg = 3; iarg < argc; iarg++) {
     FILE *in;
@@ -56,7 +62,7 @@ int main(
       continue;
     else {
       fclose(in);
-      read_gps_prof(argv[iarg], gps);
+      read_gps_prof(argv[iarg], gps, prof_zmin_max, prof_zmax_min);
     }
   }
 

@@ -339,7 +339,9 @@ void poly_help(
 /*! Read GPS-RO profile. */
 void read_gps_prof(
   char *filename,
-  gps_t * gps);
+  gps_t * gps,
+  double prof_zmin_max,
+  double prof_zmax_min);
 
 /*! Read GPS-RO data file. */
 void read_gps(
