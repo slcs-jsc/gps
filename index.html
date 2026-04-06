@@ -12,7 +12,7 @@
       
       
       
-        <link rel="next" href="links/">
+        <link rel="next" href="getting-started/">
       
       
         
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-the-cris-code-collection" class="md-skip">
+        <a href="#gps-code-collection" class="md-skip">
           Skip to content
         </a>
       
@@ -280,10 +280,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#what-you-will-find-here" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        What You Will Find Here
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Components
       
     </span>
   </a>
@@ -305,6 +327,60 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -363,10 +439,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#what-you-will-find-here" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        What You Will Find Here
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Components
       
     </span>
   </a>
@@ -404,17 +502,35 @@
   
 
 
-<h1 id="welcome-to-the-cris-code-collection">Welcome to the CrIS Code Collection!</h1>
-<p>The GPS Code Collection provides a collection of codes for the analysis of
-GPS/RO observations.</p>
-<h2 id="features">Features</h2>
-<p>tbd</p>
+<h1 id="gps-code-collection">GPS Code Collection</h1>
+<p>The GPS Code Collection provides software for the analysis of GPS radio occultation observations.</p>
+<p>This MkDocs manual is the lightweight user-facing entry point for the repository. It complements:</p>
+<ul>
+<li>the top-level <code>README.md</code> for installation notes</li>
+<li>the generated Doxygen reference for implementation details</li>
+<li>the regression tests in <code>tests/</code> for concrete workflow examples</li>
+</ul>
+<h2 id="what-you-will-find-here">What You Will Find Here</h2>
+<ul>
+<li>a quick build and test guide</li>
+<li>an overview of the available command-line tools</li>
+<li>links to the main project resources</li>
+</ul>
+<h2 id="main-components">Main Components</h2>
+<p>The repository is organized around a C-based command-line toolkit in <code>src/</code>, together with:</p>
+<ul>
+<li>local dependency builds in <code>libs/</code></li>
+<li>regression tests in <code>tests/</code></li>
+<li>documentation sources in <code>docs/</code></li>
+</ul>
+<p>The source tree builds several executables for working with profile data, maps, perturbations, tropopause diagnostics, and related statistics.</p>
+<h2 id="external-components">External Components</h2>
+<p>The files <code>src/jurassic.c</code> and <code>src/jurassic.h</code> are included here for convenience from the external <a href="https://github.com/slcs-jsc/jurassic">JURASSIC radiative transfer model</a>.</p>
 <h2 id="contact">Contact</h2>
-<p>We are interested in sharing the GPS Code Collection for research
-applications. Please do not hesitate to contact us, if you have any
-questions or need support.</p>
-<p>Dr. Lars Hoffmann, <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#46;&#104;&#111;&#102;&#102;&#109;&#97;&#110;&#110;&#64;&#102;&#122;&#45;&#106;&#117;&#101;&#108;&#105;&#99;&#104;&#46;&#100;&#101;">&#108;&#46;&#104;&#111;&#102;&#102;&#109;&#97;&#110;&#110;&#64;&#102;&#122;&#45;&#106;&#117;&#101;&#108;&#105;&#99;&#104;&#46;&#100;&#101;</a></p>
-<p>Jülich Supercomputing Centre, Forschungszentrum Jülich</p>
+<p>We are interested in sharing the GPS Code Collection for research applications. For questions or support, please contact:</p>
+<p>Dr. Lars Hoffmann<br />
+Jülich Supercomputing Centre, Forschungszentrum Jülich<br />
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#46;&#104;&#111;&#102;&#102;&#109;&#97;&#110;&#110;&#64;&#102;&#122;&#45;&#106;&#117;&#101;&#108;&#105;&#99;&#104;&#46;&#100;&#101;">&#108;&#46;&#104;&#111;&#102;&#102;&#109;&#97;&#110;&#110;&#64;&#102;&#122;&#45;&#106;&#117;&#101;&#108;&#105;&#99;&#104;&#46;&#100;&#101;</a></p>
 
 
 

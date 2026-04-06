@@ -8,11 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://slcs-jsc.github.io/gps/links/">
+        <link rel="canonical" href="https://slcs-jsc.github.io/gps/tools/">
       
       
-        <link rel="prev" href="../tools/">
+        <link rel="prev" href="../getting-started/">
       
+      
+        <link rel="next" href="../links/">
       
       
         
@@ -23,7 +25,7 @@
     
     
       
-        <title>Links - GPS Code Collection</title>
+        <title>Tools - GPS Code Collection</title>
       
     
     
@@ -64,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#links" class="md-skip">
+        <a href="#tools" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Links
+              Tools
             
           </span>
         </div>
@@ -271,10 +273,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../tools/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -290,6 +319,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-they-are-used-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What They Are Used For
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-test-entry-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build And Test Entry Points
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -298,19 +380,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
         
   
   
@@ -326,7 +399,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -351,6 +423,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-they-are-used-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What They Are Used For
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-test-entry-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build And Test Entry Points
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -369,18 +482,44 @@
   
 
 
-<h1 id="links">Links</h1>
-<p>These links provide further information for users of the GPS Code Collection:</p>
+<h1 id="tools">Tools</h1>
+<p>The <code>src/Makefile</code> builds the following command-line executables:</p>
 <ul>
-<li><a href="https://github.com/slcs-jsc/gps">Project repository</a></li>
-<li><a href="https://github.com/slcs-jsc/gps/blob/master/README.md">README file</a></li>
-<li><a href="https://slcs-jsc.github.io/gps">MkDocs user manual</a></li>
-<li><a href="https://slcs-jsc.github.io/gps/doxygen">Doxygen manual</a></li>
-<li><a href="https://github.com/slcs-jsc/jurassic">JURASSIC upstream repository</a></li>
-<li><a href="https://www.deepwiki.com/slcs-jsc/gps">AI documentation</a></li>
-<li><a href="https://github.com/slcs-jsc/gps/blob/master/CITATION.cff">Citation file</a></li>
-<li><a href="https://github.com/slcs-jsc/gps/blob/master/COPYING">License</a></li>
+<li><code>day2doy</code></li>
+<li><code>doy2day</code></li>
+<li><code>events</code></li>
+<li><code>jsec2time</code></li>
+<li><code>map</code></li>
+<li><code>perturbation</code></li>
+<li><code>prof</code></li>
+<li><code>response</code></li>
+<li><code>time2jsec</code></li>
+<li><code>tropo</code></li>
+<li><code>variance</code></li>
 </ul>
+<h2 id="what-they-are-used-for">What They Are Used For</h2>
+<p>The tools cover a small set of common workflows around GPS radio occultation data:</p>
+<ul>
+<li>date and time conversion utilities</li>
+<li>event extraction and tabular summaries</li>
+<li>map and profile export</li>
+<li>perturbation analysis</li>
+<li>tropopause diagnostics</li>
+<li>response and variance calculations</li>
+</ul>
+<h2 id="related-components">Related Components</h2>
+<p>Several executables share infrastructure from:</p>
+<ul>
+<li><code>libgps.c</code> and <code>libgps.h</code>: project-specific I/O and analysis helpers</li>
+<li><code>jurassic.c</code> and <code>jurassic.h</code>: vendored code from the external <a href="https://github.com/slcs-jsc/jurassic">JURASSIC</a> radiative transfer model</li>
+</ul>
+<h2 id="build-and-test-entry-points">Build And Test Entry Points</h2>
+<p>Most users will interact with the tools through the main build workflow:</p>
+<pre><code class="language-sh">cd src
+make
+make check
+</code></pre>
+<p>For implementation details and APIs, see the Doxygen manual linked from the documentation site.</p>
 
 
 
