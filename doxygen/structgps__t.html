@@ -7,11 +7,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GPS Code Collection: gps_t Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">var page_layout=1;</script>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   extensions: ["tex2jax.js"],
@@ -22,6 +32,7 @@ MathJax.Hub.Config({
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
@@ -30,8 +41,24 @@ MathJax.Hub.Config({
   <td id="projectalign">
    <div id="projectname">GPS Code Collection
    </div>
+   <div id="projectbrief">Algorithms and API reference for GPS/RO analysis tools</div>
   </td>
  </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td></tr>
  </tbody>
 </table>
 </div>
@@ -42,17 +69,22 @@ MathJax.Hub.Config({
 var searchBox = new SearchBox("searchBox", "search",'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('structgps__t.html',''); initResizable(); });
 /* @license-end */
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,7 +99,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
@@ -134,7 +165,7 @@ Data Fields</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >GPS-RO profile data. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00153">153</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00180">180</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="aaf0651f734f0690fae832636bfd73c39" name="aaf0651f734f0690fae832636bfd73c39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaf0651f734f0690fae832636bfd73c39">&#9670;&nbsp;</a></span>nds</h2>
@@ -150,7 +181,9 @@ Data Fields</h2></td></tr>
 
 <p>Number of profiles. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00156">156</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00183">183</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>, <a class="el" href="libgps_8c_source.html#l00094">gauss()</a>, <a class="el" href="libgps_8c_source.html#l00136">grid_gps()</a>, <a class="el" href="libgps_8c_source.html#l00389">hamming_high_pass()</a>, <a class="el" href="libgps_8c_source.html#l00331">hamming_low_pass()</a>, <a class="el" href="events_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00443">poly()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00528">read_gps_prof()</a>, <a class="el" href="libgps_8c_source.html#l00908">tropopause()</a>, <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -168,7 +201,9 @@ Data Fields</h2></td></tr>
 
 <p>Number of altitudes per profile. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00159">159</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00186">186</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>, <a class="el" href="libgps_8c_source.html#l00094">gauss()</a>, <a class="el" href="libgps_8c_source.html#l00136">grid_gps()</a>, <a class="el" href="libgps_8c_source.html#l00389">hamming_high_pass()</a>, <a class="el" href="libgps_8c_source.html#l00331">hamming_low_pass()</a>, <a class="el" href="events_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00443">poly()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00528">read_gps_prof()</a>, <a class="el" href="libgps_8c_source.html#l00908">tropopause()</a>, <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -186,7 +221,9 @@ Data Fields</h2></td></tr>
 
 <p>Time (seconds since 2000-01-01T00:00Z). </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00162">162</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00189">189</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>, <a class="el" href="events_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00528">read_gps_prof()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -204,7 +241,9 @@ Data Fields</h2></td></tr>
 
 <p>Altitude [km]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00165">165</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00192">192</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00136">grid_gps()</a>, <a class="el" href="libgps_8c_source.html#l00389">hamming_high_pass()</a>, <a class="el" href="libgps_8c_source.html#l00331">hamming_low_pass()</a>, <a class="el" href="events_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00443">poly()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00528">read_gps_prof()</a>, <a class="el" href="libgps_8c_source.html#l00908">tropopause()</a>, <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -222,7 +261,9 @@ Data Fields</h2></td></tr>
 
 <p>Longitude [deg]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00168">168</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00195">195</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>, <a class="el" href="libgps_8c_source.html#l00094">gauss()</a>, <a class="el" href="libgps_8c_source.html#l00136">grid_gps()</a>, <a class="el" href="events_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00528">read_gps_prof()</a>, <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -240,7 +281,9 @@ Data Fields</h2></td></tr>
 
 <p>Latitude [deg]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00171">171</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00198">198</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>, <a class="el" href="libgps_8c_source.html#l00094">gauss()</a>, <a class="el" href="libgps_8c_source.html#l00136">grid_gps()</a>, <a class="el" href="events_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00528">read_gps_prof()</a>, <a class="el" href="libgps_8c_source.html#l00908">tropopause()</a>, <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -258,7 +301,9 @@ Data Fields</h2></td></tr>
 
 <p>Pressure [hPa]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00174">174</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00201">201</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>, <a class="el" href="libgps_8c_source.html#l00136">grid_gps()</a>, <a class="el" href="map_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00528">read_gps_prof()</a>, <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -276,7 +321,9 @@ Data Fields</h2></td></tr>
 
 <p>Temperature [K]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00177">177</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00204">204</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>, <a class="el" href="libgps_8c_source.html#l00094">gauss()</a>, <a class="el" href="libgps_8c_source.html#l00136">grid_gps()</a>, <a class="el" href="libgps_8c_source.html#l00389">hamming_high_pass()</a>, <a class="el" href="libgps_8c_source.html#l00331">hamming_low_pass()</a>, <a class="el" href="events_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00528">read_gps_prof()</a>, <a class="el" href="libgps_8c_source.html#l00908">tropopause()</a>, <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -294,7 +341,9 @@ Data Fields</h2></td></tr>
 
 <p>Water vapor volume mixing ratio [ppm]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00180">180</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00207">207</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00136">grid_gps()</a>, <a class="el" href="map_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00528">read_gps_prof()</a>, <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -312,7 +361,9 @@ Data Fields</h2></td></tr>
 
 <p>Temperature perturbation [K]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00183">183</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00210">210</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>, <a class="el" href="libgps_8c_source.html#l00094">gauss()</a>, <a class="el" href="libgps_8c_source.html#l00136">grid_gps()</a>, <a class="el" href="libgps_8c_source.html#l00389">hamming_high_pass()</a>, <a class="el" href="libgps_8c_source.html#l00331">hamming_low_pass()</a>, <a class="el" href="events_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00443">poly()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -330,7 +381,9 @@ Data Fields</h2></td></tr>
 
 <p>Tropopause height [km]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00186">186</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00213">213</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00331">hamming_low_pass()</a>, <a class="el" href="events_8c_source.html#l00028">main()</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8c_source.html#l00908">tropopause()</a>, <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
 
 </div>
 </div>
@@ -348,7 +401,9 @@ Data Fields</h2></td></tr>
 
 <p>Tropopause pressure [hPa]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00189">189</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00216">216</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="tropo_8c_source.html#l00032">main()</a>, and <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>.</p>
 
 </div>
 </div>
@@ -366,7 +421,9 @@ Data Fields</h2></td></tr>
 
 <p>Tropopause temperature [K]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00192">192</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00219">219</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="tropo_8c_source.html#l00032">main()</a>, and <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>.</p>
 
 </div>
 </div>
@@ -384,7 +441,9 @@ Data Fields</h2></td></tr>
 
 <p>Tropopause water vapor [ppmv]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00195">195</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00222">222</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="tropo_8c_source.html#l00032">main()</a>, and <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>.</p>
 
 </div>
 </div>
@@ -402,7 +461,9 @@ Data Fields</h2></td></tr>
 
 <p>Tropopause longitude [deg]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00198">198</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00225">225</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="tropo_8c_source.html#l00032">main()</a>, and <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>.</p>
 
 </div>
 </div>
@@ -420,7 +481,9 @@ Data Fields</h2></td></tr>
 
 <p>Tropopause latitude [deg]. </p>
 
-<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00201">201</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libgps_8h_source.html#l00228">228</a> of file <a class="el" href="libgps_8h_source.html">libgps.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="tropo_8c_source.html#l00032">main()</a>, and <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>.</p>
 
 </div>
 </div>
@@ -428,9 +491,13 @@ Data Fields</h2></td></tr>
 <li><a class="el" href="libgps_8h_source.html">libgps.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="structgps__t.html">gps_t</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
 </body>
 </html>

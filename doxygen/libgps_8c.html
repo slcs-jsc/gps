@@ -7,11 +7,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GPS Code Collection: libgps.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">var page_layout=1;</script>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   extensions: ["tex2jax.js"],
@@ -22,6 +32,7 @@ MathJax.Hub.Config({
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
@@ -30,8 +41,24 @@ MathJax.Hub.Config({
   <td id="projectalign">
    <div id="projectname">GPS Code Collection
    </div>
+   <div id="projectbrief">Algorithms and API reference for GPS/RO analysis tools</div>
   </td>
  </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td></tr>
  </tbody>
 </table>
 </div>
@@ -42,17 +69,22 @@ MathJax.Hub.Config({
 var searchBox = new SearchBox("searchBox", "search",'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('libgps_8c.html',''); initResizable(); });
 /* @license-end */
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +99,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
@@ -243,8 +270,12 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   51</span>  <span class="comment">/* Set fill value... */</span></div>
 <div class="line"><span class="lineno">   52</span>  <a class="code hl_define" href="libgps_8h.html#a2678db26e1acda0cccd79553b9cc9b51">NC</a>(nc_put_att_double(ncid, *varid, <span class="stringliteral">&quot;_FillValue&quot;</span>, type, 1, &amp;dp));</div>
 <div class="line"><span class="lineno">   53</span>}</div>
-<div class="ttc" id="alibgps_8h_html_a2678db26e1acda0cccd79553b9cc9b51"><div class="ttname"><a href="libgps_8h.html#a2678db26e1acda0cccd79553b9cc9b51">NC</a></div><div class="ttdeci">#define NC(cmd)</div><div class="ttdoc">Execute netCDF library command and check result.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00134">libgps.h:134</a></div></div>
+<div class="ttc" id="alibgps_8h_html_a2678db26e1acda0cccd79553b9cc9b51"><div class="ttname"><a href="libgps_8h.html#a2678db26e1acda0cccd79553b9cc9b51">NC</a></div><div class="ttdeci">#define NC(cmd)</div><div class="ttdoc">Execute netCDF library command and check result.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00161">libgps.h:161</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00161">NC</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="tropo_8c_source.html#l00032">main()</a>, and <a class="el" href="libgps_8c_source.html#l01080">write_gps()</a>.</p>
+
 </div>
 </div>
 <a id="a9f541f179ae93d350b55f798a815f44f" name="a9f541f179ae93d350b55f798a815f44f"></a>
@@ -315,16 +346,20 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   90</span>}</div>
 <div class="ttc" id="alibgps_8c_html_a56ea1560ec82e2e130c0f8819273d6c1"><div class="ttname"><a href="libgps_8c.html#a56ea1560ec82e2e130c0f8819273d6c1">intpol_met_time</a></div><div class="ttdeci">void intpol_met_time(met_t *met0, met_t *met1, double ts, double p, double lon, double lat, double *t)</div><div class="ttdoc">Temporal interpolation of meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00307">libgps.c:307</a></div></div>
 <div class="ttc" id="alibgps_8c_html_a977229369fba42322618efc8d96bdebe"><div class="ttname"><a href="libgps_8c.html#a977229369fba42322618efc8d96bdebe">get_met</a></div><div class="ttdeci">void get_met(char *metbase, double dt_met, double t, met_t *met0, met_t *met1)</div><div class="ttdoc">Get meteorological data for given timestep.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00191">libgps.c:191</a></div></div>
-<div class="ttc" id="astructgps__t_html_a0b14a4a678e2313c8ba717ef1f6fc811"><div class="ttname"><a href="structgps__t.html#a0b14a4a678e2313c8ba717ef1f6fc811">gps_t::time</a></div><div class="ttdeci">double time[NDS]</div><div class="ttdoc">Time (seconds since 2000-01-01T00:00Z).</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00162">libgps.h:162</a></div></div>
-<div class="ttc" id="astructgps__t_html_a42b1c893eebb85bd0e2098b18895f86c"><div class="ttname"><a href="structgps__t.html#a42b1c893eebb85bd0e2098b18895f86c">gps_t::pt</a></div><div class="ttdeci">double pt[NDS][NZ]</div><div class="ttdoc">Temperature perturbation [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00183">libgps.h:183</a></div></div>
-<div class="ttc" id="astructgps__t_html_a62c89658cb73f0c253963312a1cd9c7a"><div class="ttname"><a href="structgps__t.html#a62c89658cb73f0c253963312a1cd9c7a">gps_t::t</a></div><div class="ttdeci">double t[NDS][NZ]</div><div class="ttdoc">Temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00177">libgps.h:177</a></div></div>
-<div class="ttc" id="astructgps__t_html_a7c0ffa2c4f6c587d0c7038f79c7a32dd"><div class="ttname"><a href="structgps__t.html#a7c0ffa2c4f6c587d0c7038f79c7a32dd">gps_t::nz</a></div><div class="ttdeci">int nz[NDS]</div><div class="ttdoc">Number of altitudes per profile.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00159">libgps.h:159</a></div></div>
-<div class="ttc" id="astructgps__t_html_a924958ccca91f994f51d1a31053c5a36"><div class="ttname"><a href="structgps__t.html#a924958ccca91f994f51d1a31053c5a36">gps_t::lon</a></div><div class="ttdeci">double lon[NDS][NZ]</div><div class="ttdoc">Longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00168">libgps.h:168</a></div></div>
-<div class="ttc" id="astructgps__t_html_aaf0651f734f0690fae832636bfd73c39"><div class="ttname"><a href="structgps__t.html#aaf0651f734f0690fae832636bfd73c39">gps_t::nds</a></div><div class="ttdeci">int nds</div><div class="ttdoc">Number of profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00156">libgps.h:156</a></div></div>
-<div class="ttc" id="astructgps__t_html_ab0b6cfe183a2456b2ccabdaf572807d8"><div class="ttname"><a href="structgps__t.html#ab0b6cfe183a2456b2ccabdaf572807d8">gps_t::p</a></div><div class="ttdeci">double p[NDS][NZ]</div><div class="ttdoc">Pressure [hPa].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00174">libgps.h:174</a></div></div>
-<div class="ttc" id="astructgps__t_html_adf633779eb426357084d7b4d9f1a977c"><div class="ttname"><a href="structgps__t.html#adf633779eb426357084d7b4d9f1a977c">gps_t::lat</a></div><div class="ttdeci">double lat[NDS][NZ]</div><div class="ttdoc">Latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00171">libgps.h:171</a></div></div>
-<div class="ttc" id="astructmet__t_html"><div class="ttname"><a href="structmet__t.html">met_t</a></div><div class="ttdoc">Meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00206">libgps.h:206</a></div></div>
-</div><!-- fragment --><div class="dynheader">
+<div class="ttc" id="astructgps__t_html_a0b14a4a678e2313c8ba717ef1f6fc811"><div class="ttname"><a href="structgps__t.html#a0b14a4a678e2313c8ba717ef1f6fc811">gps_t::time</a></div><div class="ttdeci">double time[NDS]</div><div class="ttdoc">Time (seconds since 2000-01-01T00:00Z).</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00189">libgps.h:189</a></div></div>
+<div class="ttc" id="astructgps__t_html_a42b1c893eebb85bd0e2098b18895f86c"><div class="ttname"><a href="structgps__t.html#a42b1c893eebb85bd0e2098b18895f86c">gps_t::pt</a></div><div class="ttdeci">double pt[NDS][NZ]</div><div class="ttdoc">Temperature perturbation [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00210">libgps.h:210</a></div></div>
+<div class="ttc" id="astructgps__t_html_a62c89658cb73f0c253963312a1cd9c7a"><div class="ttname"><a href="structgps__t.html#a62c89658cb73f0c253963312a1cd9c7a">gps_t::t</a></div><div class="ttdeci">double t[NDS][NZ]</div><div class="ttdoc">Temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00204">libgps.h:204</a></div></div>
+<div class="ttc" id="astructgps__t_html_a7c0ffa2c4f6c587d0c7038f79c7a32dd"><div class="ttname"><a href="structgps__t.html#a7c0ffa2c4f6c587d0c7038f79c7a32dd">gps_t::nz</a></div><div class="ttdeci">int nz[NDS]</div><div class="ttdoc">Number of altitudes per profile.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00186">libgps.h:186</a></div></div>
+<div class="ttc" id="astructgps__t_html_a924958ccca91f994f51d1a31053c5a36"><div class="ttname"><a href="structgps__t.html#a924958ccca91f994f51d1a31053c5a36">gps_t::lon</a></div><div class="ttdeci">double lon[NDS][NZ]</div><div class="ttdoc">Longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00195">libgps.h:195</a></div></div>
+<div class="ttc" id="astructgps__t_html_aaf0651f734f0690fae832636bfd73c39"><div class="ttname"><a href="structgps__t.html#aaf0651f734f0690fae832636bfd73c39">gps_t::nds</a></div><div class="ttdeci">int nds</div><div class="ttdoc">Number of profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00183">libgps.h:183</a></div></div>
+<div class="ttc" id="astructgps__t_html_ab0b6cfe183a2456b2ccabdaf572807d8"><div class="ttname"><a href="structgps__t.html#ab0b6cfe183a2456b2ccabdaf572807d8">gps_t::p</a></div><div class="ttdeci">double p[NDS][NZ]</div><div class="ttdoc">Pressure [hPa].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00201">libgps.h:201</a></div></div>
+<div class="ttc" id="astructgps__t_html_adf633779eb426357084d7b4d9f1a977c"><div class="ttname"><a href="structgps__t.html#adf633779eb426357084d7b4d9f1a977c">gps_t::lat</a></div><div class="ttdeci">double lat[NDS][NZ]</div><div class="ttdoc">Latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00198">libgps.h:198</a></div></div>
+<div class="ttc" id="astructmet__t_html"><div class="ttname"><a href="structmet__t.html">met_t</a></div><div class="ttdoc">Meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00233">libgps.h:233</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8c_source.html#l00191">get_met()</a>, <a class="el" href="libgps_8c_source.html#l00307">intpol_met_time()</a>, <a class="el" href="libgps_8h_source.html#l00198">gps_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00195">gps_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00201">gps_t::p</a>, <a class="el" href="libgps_8h_source.html#l00210">gps_t::pt</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, and <a class="el" href="libgps_8h_source.html#l00189">gps_t::time</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="perturbation_8c_source.html#l00032">main()</a>.</p>
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="libgps_8c_a9f541f179ae93d350b55f798a815f44f_cgraph.png" border="0" usemap="#alibgps_8c_a9f541f179ae93d350b55f798a815f44f_cgraph" alt=""/></div>
@@ -416,6 +451,10 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  131</span>  }</div>
 <div class="line"><span class="lineno">  132</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00198">gps_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00195">gps_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00210">gps_t::pt</a>, and <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="perturbation_8c_source.html#l00032">main()</a>.</p>
+
 </div>
 </div>
 <a id="a6b51f6c612e246ff8a5c4b11fa01b173" name="a6b51f6c612e246ff8a5c4b11fa01b173"></a>
@@ -507,10 +546,14 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  185</span>    }</div>
 <div class="line"><span class="lineno">  186</span>  }</div>
 <div class="line"><span class="lineno">  187</span>}</div>
-<div class="ttc" id="alibgps_8h_html_a693aee47b2103d0a7fcd3a0a0dd4fb57"><div class="ttname"><a href="libgps_8h.html#a693aee47b2103d0a7fcd3a0a0dd4fb57">NZ</a></div><div class="ttdeci">#define NZ</div><div class="ttdoc">Maximum number of altitudes per GPS-RO profile.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00103">libgps.h:103</a></div></div>
-<div class="ttc" id="astructgps__t_html_a795f4c624baaeff3bdb50d95acf2427f"><div class="ttname"><a href="structgps__t.html#a795f4c624baaeff3bdb50d95acf2427f">gps_t::wv</a></div><div class="ttdeci">double wv[NDS][NZ]</div><div class="ttdoc">Water vapor volume mixing ratio [ppm].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00180">libgps.h:180</a></div></div>
-<div class="ttc" id="astructgps__t_html_ad1578ddb7b4cb5d5f4d5dea1ce1a4ca5"><div class="ttname"><a href="structgps__t.html#ad1578ddb7b4cb5d5f4d5dea1ce1a4ca5">gps_t::z</a></div><div class="ttdeci">double z[NDS][NZ]</div><div class="ttdoc">Altitude [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00165">libgps.h:165</a></div></div>
+<div class="ttc" id="alibgps_8h_html_a693aee47b2103d0a7fcd3a0a0dd4fb57"><div class="ttname"><a href="libgps_8h.html#a693aee47b2103d0a7fcd3a0a0dd4fb57">NZ</a></div><div class="ttdeci">#define NZ</div><div class="ttdoc">Maximum number of altitudes per GPS-RO profile.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00130">libgps.h:130</a></div></div>
+<div class="ttc" id="astructgps__t_html_a795f4c624baaeff3bdb50d95acf2427f"><div class="ttname"><a href="structgps__t.html#a795f4c624baaeff3bdb50d95acf2427f">gps_t::wv</a></div><div class="ttdeci">double wv[NDS][NZ]</div><div class="ttdoc">Water vapor volume mixing ratio [ppm].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00207">libgps.h:207</a></div></div>
+<div class="ttc" id="astructgps__t_html_ad1578ddb7b4cb5d5f4d5dea1ce1a4ca5"><div class="ttname"><a href="structgps__t.html#ad1578ddb7b4cb5d5f4d5dea1ce1a4ca5">gps_t::z</a></div><div class="ttdeci">double z[NDS][NZ]</div><div class="ttdoc">Altitude [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00192">libgps.h:192</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00198">gps_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00195">gps_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00130">NZ</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00201">gps_t::p</a>, <a class="el" href="libgps_8h_source.html#l00210">gps_t::pt</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, <a class="el" href="libgps_8h_source.html#l00207">gps_t::wv</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="perturbation_8c_source.html#l00032">main()</a>.</p>
+
 </div>
 </div>
 <a id="a977229369fba42322618efc8d96bdebe" name="a977229369fba42322618efc8d96bdebe"></a>
@@ -586,8 +629,12 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  219</span>}</div>
 <div class="ttc" id="alibgps_8c_html_a4b7536f3487319c9d0650a6bfbbf4745"><div class="ttname"><a href="libgps_8c.html#a4b7536f3487319c9d0650a6bfbbf4745">read_met</a></div><div class="ttdeci">void read_met(char *filename, met_t *met)</div><div class="ttdoc">Read meteorological data file.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00705">libgps.c:705</a></div></div>
 <div class="ttc" id="alibgps_8c_html_aa0c58f85ea7abc175737176da82f2939"><div class="ttname"><a href="libgps_8c.html#aa0c58f85ea7abc175737176da82f2939">get_met_help</a></div><div class="ttdeci">void get_met_help(double t, int direct, char *metbase, double dt_met, char *filename)</div><div class="ttdoc">Get meteorological data for timestep.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00223">libgps.c:223</a></div></div>
-<div class="ttc" id="astructmet__t_html_acf9d509f67dbc7ad8119d40a2757285f"><div class="ttname"><a href="structmet__t.html#acf9d509f67dbc7ad8119d40a2757285f">met_t::time</a></div><div class="ttdeci">double time</div><div class="ttdoc">Time [s].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00209">libgps.h:209</a></div></div>
-</div><!-- fragment --><div class="dynheader">
+<div class="ttc" id="astructmet__t_html_acf9d509f67dbc7ad8119d40a2757285f"><div class="ttname"><a href="structmet__t.html#acf9d509f67dbc7ad8119d40a2757285f">met_t::time</a></div><div class="ttdeci">double time</div><div class="ttdoc">Time [s].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00236">libgps.h:236</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8c_source.html#l00223">get_met_help()</a>, <a class="el" href="libgps_8c_source.html#l00705">read_met()</a>, and <a class="el" href="libgps_8h_source.html#l00236">met_t::time</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>.</p>
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="libgps_8c_a977229369fba42322618efc8d96bdebe_cgraph.png" border="0" usemap="#alibgps_8c_a977229369fba42322618efc8d96bdebe_cgraph" alt=""/></div>
@@ -669,6 +716,8 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  244</span>  sprintf(filename, <span class="stringliteral">&quot;%s_%d_%02d_%02d_%02d.nc&quot;</span>, metbase, year, mon, day, hour);</div>
 <div class="line"><span class="lineno">  245</span>}</div>
 </div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00191">get_met()</a>.</p>
+
 </div>
 </div>
 <a id="a6f092fadf1adc9dc38f37eb0cb572703" name="a6f092fadf1adc9dc38f37eb0cb572703"></a>
@@ -755,6 +804,8 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  273</span>  *var = wx * (aux00 - aux11) + aux11;</div>
 <div class="line"><span class="lineno">  274</span>}</div>
 </div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00278">intpol_met_space()</a>.</p>
+
 </div>
 </div>
 <a id="a1a79c829de505451c3e0c80fface9f43" name="a1a79c829de505451c3e0c80fface9f43"></a>
@@ -826,14 +877,18 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  302</span>  <a class="code hl_function" href="libgps_8c.html#a6f092fadf1adc9dc38f37eb0cb572703">intpol_met_3d</a>(met-&gt;<a class="code hl_variable" href="structmet__t.html#a60fe66c30f0f0b5abdb46f220e3137cf">t</a>, ip, ix, iy, wp, wx, wy, t);</div>
 <div class="line"><span class="lineno">  303</span>}</div>
 <div class="ttc" id="alibgps_8c_html_a6f092fadf1adc9dc38f37eb0cb572703"><div class="ttname"><a href="libgps_8c.html#a6f092fadf1adc9dc38f37eb0cb572703">intpol_met_3d</a></div><div class="ttdeci">void intpol_met_3d(float array[EX][EY][EP], int ip, int ix, int iy, double wp, double wx, double wy, double *var)</div><div class="ttdoc">Linear interpolation of 3-D meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00249">libgps.c:249</a></div></div>
-<div class="ttc" id="astructmet__t_html_a2bbd96a0a7184bc730c14323a067a760"><div class="ttname"><a href="structmet__t.html#a2bbd96a0a7184bc730c14323a067a760">met_t::nx</a></div><div class="ttdeci">int nx</div><div class="ttdoc">Number of longitudes.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00212">libgps.h:212</a></div></div>
-<div class="ttc" id="astructmet__t_html_a3a066580dfee9253cfe22b1e4ebf73b9"><div class="ttname"><a href="structmet__t.html#a3a066580dfee9253cfe22b1e4ebf73b9">met_t::ny</a></div><div class="ttdeci">int ny</div><div class="ttdoc">Number of latitudes.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00215">libgps.h:215</a></div></div>
-<div class="ttc" id="astructmet__t_html_a5d4eb4cd28aa5db1ec672368921c0b8f"><div class="ttname"><a href="structmet__t.html#a5d4eb4cd28aa5db1ec672368921c0b8f">met_t::np</a></div><div class="ttdeci">int np</div><div class="ttdoc">Number of pressure levels.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00218">libgps.h:218</a></div></div>
-<div class="ttc" id="astructmet__t_html_a60fe66c30f0f0b5abdb46f220e3137cf"><div class="ttname"><a href="structmet__t.html#a60fe66c30f0f0b5abdb46f220e3137cf">met_t::t</a></div><div class="ttdeci">float t[EX][EY][EP]</div><div class="ttdoc">Temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00230">libgps.h:230</a></div></div>
-<div class="ttc" id="astructmet__t_html_a85df96bff71dfa55576a995234a87b8f"><div class="ttname"><a href="structmet__t.html#a85df96bff71dfa55576a995234a87b8f">met_t::lon</a></div><div class="ttdeci">double lon[EX]</div><div class="ttdoc">Longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00221">libgps.h:221</a></div></div>
-<div class="ttc" id="astructmet__t_html_af7b2d03415a8164a3e0a29da55a9f371"><div class="ttname"><a href="structmet__t.html#af7b2d03415a8164a3e0a29da55a9f371">met_t::lat</a></div><div class="ttdeci">double lat[EY]</div><div class="ttdoc">Latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00224">libgps.h:224</a></div></div>
-<div class="ttc" id="astructmet__t_html_affbacae5925ff68007396b525622ee34"><div class="ttname"><a href="structmet__t.html#affbacae5925ff68007396b525622ee34">met_t::p</a></div><div class="ttdeci">double p[EP]</div><div class="ttdoc">Pressure [hPa].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00227">libgps.h:227</a></div></div>
-</div><!-- fragment --><div class="dynheader">
+<div class="ttc" id="astructmet__t_html_a2bbd96a0a7184bc730c14323a067a760"><div class="ttname"><a href="structmet__t.html#a2bbd96a0a7184bc730c14323a067a760">met_t::nx</a></div><div class="ttdeci">int nx</div><div class="ttdoc">Number of longitudes.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00239">libgps.h:239</a></div></div>
+<div class="ttc" id="astructmet__t_html_a3a066580dfee9253cfe22b1e4ebf73b9"><div class="ttname"><a href="structmet__t.html#a3a066580dfee9253cfe22b1e4ebf73b9">met_t::ny</a></div><div class="ttdeci">int ny</div><div class="ttdoc">Number of latitudes.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00242">libgps.h:242</a></div></div>
+<div class="ttc" id="astructmet__t_html_a5d4eb4cd28aa5db1ec672368921c0b8f"><div class="ttname"><a href="structmet__t.html#a5d4eb4cd28aa5db1ec672368921c0b8f">met_t::np</a></div><div class="ttdeci">int np</div><div class="ttdoc">Number of pressure levels.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00245">libgps.h:245</a></div></div>
+<div class="ttc" id="astructmet__t_html_a60fe66c30f0f0b5abdb46f220e3137cf"><div class="ttname"><a href="structmet__t.html#a60fe66c30f0f0b5abdb46f220e3137cf">met_t::t</a></div><div class="ttdeci">float t[EX][EY][EP]</div><div class="ttdoc">Temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00257">libgps.h:257</a></div></div>
+<div class="ttc" id="astructmet__t_html_a85df96bff71dfa55576a995234a87b8f"><div class="ttname"><a href="structmet__t.html#a85df96bff71dfa55576a995234a87b8f">met_t::lon</a></div><div class="ttdeci">double lon[EX]</div><div class="ttdoc">Longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00248">libgps.h:248</a></div></div>
+<div class="ttc" id="astructmet__t_html_af7b2d03415a8164a3e0a29da55a9f371"><div class="ttname"><a href="structmet__t.html#af7b2d03415a8164a3e0a29da55a9f371">met_t::lat</a></div><div class="ttdeci">double lat[EY]</div><div class="ttdoc">Latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00251">libgps.h:251</a></div></div>
+<div class="ttc" id="astructmet__t_html_affbacae5925ff68007396b525622ee34"><div class="ttname"><a href="structmet__t.html#affbacae5925ff68007396b525622ee34">met_t::p</a></div><div class="ttdeci">double p[EP]</div><div class="ttdoc">Pressure [hPa].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00254">libgps.h:254</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8c_source.html#l00249">intpol_met_3d()</a>, <a class="el" href="libgps_8h_source.html#l00251">met_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00248">met_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00245">met_t::np</a>, <a class="el" href="libgps_8h_source.html#l00239">met_t::nx</a>, <a class="el" href="libgps_8h_source.html#l00242">met_t::ny</a>, <a class="el" href="libgps_8h_source.html#l00254">met_t::p</a>, and <a class="el" href="libgps_8h_source.html#l00257">met_t::t</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00307">intpol_met_time()</a>.</p>
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="libgps_8c_a1a79c829de505451c3e0c80fface9f43_cgraph.png" border="0" usemap="#alibgps_8c_a1a79c829de505451c3e0c80fface9f43_cgraph" alt=""/></div>
@@ -919,7 +974,11 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  326</span>  *t = wt * (t0 - t1) + t1;</div>
 <div class="line"><span class="lineno">  327</span>}</div>
 <div class="ttc" id="alibgps_8c_html_a1a79c829de505451c3e0c80fface9f43"><div class="ttname"><a href="libgps_8c.html#a1a79c829de505451c3e0c80fface9f43">intpol_met_space</a></div><div class="ttdeci">void intpol_met_space(met_t *met, double p, double lon, double lat, double *t)</div><div class="ttdoc">Spatial interpolation of meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00278">libgps.c:278</a></div></div>
-</div><!-- fragment --><div class="dynheader">
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8c_source.html#l00278">intpol_met_space()</a>, and <a class="el" href="libgps_8h_source.html#l00236">met_t::time</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00057">detrend_met()</a>.</p>
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="libgps_8c_a56ea1560ec82e2e130c0f8819273d6c1_cgraph.png" border="0" usemap="#alibgps_8c_a56ea1560ec82e2e130c0f8819273d6c1_cgraph" alt=""/></div>
@@ -1014,8 +1073,12 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  383</span>    }</div>
 <div class="line"><span class="lineno">  384</span>  }</div>
 <div class="line"><span class="lineno">  385</span>}</div>
-<div class="ttc" id="astructgps__t_html_ab531dba3ca3e3b572e2611778d749bac"><div class="ttname"><a href="structgps__t.html#ab531dba3ca3e3b572e2611778d749bac">gps_t::th</a></div><div class="ttdeci">double th[NDS]</div><div class="ttdoc">Tropopause height [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00186">libgps.h:186</a></div></div>
+<div class="ttc" id="astructgps__t_html_ab531dba3ca3e3b572e2611778d749bac"><div class="ttname"><a href="structgps__t.html#ab531dba3ca3e3b572e2611778d749bac">gps_t::th</a></div><div class="ttdeci">double th[NDS]</div><div class="ttdoc">Tropopause height [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00213">libgps.h:213</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00130">NZ</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00210">gps_t::pt</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, <a class="el" href="libgps_8h_source.html#l00213">gps_t::th</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="perturbation_8c_source.html#l00032">main()</a>.</p>
+
 </div>
 </div>
 <a id="aa52feecb5ab6f4206d043ddb24acf930" name="aa52feecb5ab6f4206d043ddb24acf930"></a>
@@ -1097,6 +1160,10 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  438</span>  }</div>
 <div class="line"><span class="lineno">  439</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00130">NZ</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00210">gps_t::pt</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="perturbation_8c_source.html#l00032">main()</a>.</p>
+
 </div>
 </div>
 <a id="a660ebeb431ddd1c5161339fd01f49d51" name="a660ebeb431ddd1c5161339fd01f49d51"></a>
@@ -1160,7 +1227,11 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  464</span>  }</div>
 <div class="line"><span class="lineno">  465</span>}</div>
 <div class="ttc" id="alibgps_8c_html_aae7607dd4621eaa793cfa24ff6cbe71a"><div class="ttname"><a href="libgps_8c.html#aae7607dd4621eaa793cfa24ff6cbe71a">poly_help</a></div><div class="ttdeci">void poly_help(double *xx, double *yy, int n, int dim, double xmin, double xmax)</div><div class="ttdoc">Auxiliary function for polynomial interpolation.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00469">libgps.c:469</a></div></div>
-</div><!-- fragment --><div class="dynheader">
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00130">NZ</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8c_source.html#l00469">poly_help()</a>, <a class="el" href="libgps_8h_source.html#l00210">gps_t::pt</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="perturbation_8c_source.html#l00032">main()</a>.</p>
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="libgps_8c_a660ebeb431ddd1c5161339fd01f49d51_cgraph.png" border="0" usemap="#alibgps_8c_a660ebeb431ddd1c5161339fd01f49d51_cgraph" alt=""/></div>
@@ -1276,6 +1347,10 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  523</span>  gsl_vector_free(y);</div>
 <div class="line"><span class="lineno">  524</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00130">NZ</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00443">poly()</a>.</p>
+
 </div>
 </div>
 <a id="a5fc477800b26e1548c8586564e4e179b" name="a5fc477800b26e1548c8586564e4e179b"></a>
@@ -1418,8 +1493,12 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  628</span>  <span class="keywordflow">if</span> ((++gps-&gt;<a class="code hl_variable" href="structgps__t.html#aaf0651f734f0690fae832636bfd73c39">nds</a>) &gt;= <a class="code hl_define" href="libgps_8h.html#a7ca823fc1ab3608cded588de021916eb">NDS</a>)</div>
 <div class="line"><span class="lineno">  629</span>    ERRMSG(<span class="stringliteral">&quot;Too many profiles!&quot;</span>);</div>
 <div class="line"><span class="lineno">  630</span>}</div>
-<div class="ttc" id="alibgps_8h_html_a7ca823fc1ab3608cded588de021916eb"><div class="ttname"><a href="libgps_8h.html#a7ca823fc1ab3608cded588de021916eb">NDS</a></div><div class="ttdeci">#define NDS</div><div class="ttdoc">Maximum number of GPS-RO profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00100">libgps.h:100</a></div></div>
+<div class="ttc" id="alibgps_8h_html_a7ca823fc1ab3608cded588de021916eb"><div class="ttname"><a href="libgps_8h.html#a7ca823fc1ab3608cded588de021916eb">NDS</a></div><div class="ttdeci">#define NDS</div><div class="ttdoc">Maximum number of GPS-RO profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00127">libgps.h:127</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00198">gps_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00195">gps_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00161">NC</a>, <a class="el" href="libgps_8h_source.html#l00127">NDS</a>, <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00130">NZ</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00201">gps_t::p</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, <a class="el" href="libgps_8h_source.html#l00189">gps_t::time</a>, <a class="el" href="libgps_8h_source.html#l00207">gps_t::wv</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="perturbation_8c_source.html#l00032">main()</a>.</p>
+
 </div>
 </div>
 <a id="a999f498bd606291539c1abdd24394243" name="a999f498bd606291539c1abdd24394243"></a>
@@ -1518,6 +1597,10 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  700</span>  <a class="code hl_define" href="libgps_8h.html#a2678db26e1acda0cccd79553b9cc9b51">NC</a>(nc_close(ncid));</div>
 <div class="line"><span class="lineno">  701</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00198">gps_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00195">gps_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00161">NC</a>, <a class="el" href="libgps_8h_source.html#l00127">NDS</a>, <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00130">NZ</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00201">gps_t::p</a>, <a class="el" href="libgps_8h_source.html#l00210">gps_t::pt</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, <a class="el" href="libgps_8h_source.html#l00213">gps_t::th</a>, <a class="el" href="libgps_8h_source.html#l00189">gps_t::time</a>, <a class="el" href="libgps_8h_source.html#l00207">gps_t::wv</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="events_8c_source.html#l00028">main()</a>.</p>
+
 </div>
 </div>
 <a id="a4b7536f3487319c9d0650a6bfbbf4745" name="a4b7536f3487319c9d0650a6bfbbf4745"></a>
@@ -1627,10 +1710,14 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="alibgps_8c_html_a089d9c0099e3fc6944c2a48667362ca0"><div class="ttname"><a href="libgps_8c.html#a089d9c0099e3fc6944c2a48667362ca0">read_met_extrapolate</a></div><div class="ttdeci">void read_met_extrapolate(met_t *met)</div><div class="ttdoc">Extrapolate meteorological data at lower boundary.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00785">libgps.c:785</a></div></div>
 <div class="ttc" id="alibgps_8c_html_a38f91765df8eb0a66fb3a6408dca0600"><div class="ttname"><a href="libgps_8c.html#a38f91765df8eb0a66fb3a6408dca0600">read_met_periodic</a></div><div class="ttdeci">void read_met_periodic(met_t *met)</div><div class="ttdoc">Create meteorological data with periodic boundary conditions.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00838">libgps.c:838</a></div></div>
 <div class="ttc" id="alibgps_8c_html_ab4bf3e7235a161e9845cb0cf68aedc5c"><div class="ttname"><a href="libgps_8c.html#ab4bf3e7235a161e9845cb0cf68aedc5c">read_met_help</a></div><div class="ttdeci">void read_met_help(int ncid, char *varname, char *varname2, met_t *met, float dest[EX][EY][EP], float scl)</div><div class="ttdoc">Read and convert variable from meteorological data file.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00806">libgps.c:806</a></div></div>
-<div class="ttc" id="alibgps_8h_html_a423a96c51fa2ea8a6406113803acbbc1"><div class="ttname"><a href="libgps_8h.html#a423a96c51fa2ea8a6406113803acbbc1">EY</a></div><div class="ttdeci">#define EY</div><div class="ttdoc">Maximum number of latitudes for meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00097">libgps.h:97</a></div></div>
-<div class="ttc" id="alibgps_8h_html_a6c2e35fdcd9091ccada629895fa1d034"><div class="ttname"><a href="libgps_8h.html#a6c2e35fdcd9091ccada629895fa1d034">EX</a></div><div class="ttdeci">#define EX</div><div class="ttdoc">Maximum number of longitudes for meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00094">libgps.h:94</a></div></div>
-<div class="ttc" id="alibgps_8h_html_adb5bf6fbe6405b09bad71e89e1da5850"><div class="ttname"><a href="libgps_8h.html#adb5bf6fbe6405b09bad71e89e1da5850">EP</a></div><div class="ttdeci">#define EP</div><div class="ttdoc">Maximum number of pressure levels for meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00091">libgps.h:91</a></div></div>
-</div><!-- fragment --><div class="dynheader">
+<div class="ttc" id="alibgps_8h_html_a423a96c51fa2ea8a6406113803acbbc1"><div class="ttname"><a href="libgps_8h.html#a423a96c51fa2ea8a6406113803acbbc1">EY</a></div><div class="ttdeci">#define EY</div><div class="ttdoc">Maximum number of latitudes for meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00124">libgps.h:124</a></div></div>
+<div class="ttc" id="alibgps_8h_html_a6c2e35fdcd9091ccada629895fa1d034"><div class="ttname"><a href="libgps_8h.html#a6c2e35fdcd9091ccada629895fa1d034">EX</a></div><div class="ttdeci">#define EX</div><div class="ttdoc">Maximum number of longitudes for meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00121">libgps.h:121</a></div></div>
+<div class="ttc" id="alibgps_8h_html_adb5bf6fbe6405b09bad71e89e1da5850"><div class="ttname"><a href="libgps_8h.html#adb5bf6fbe6405b09bad71e89e1da5850">EP</a></div><div class="ttdeci">#define EP</div><div class="ttdoc">Maximum number of pressure levels for meteorological data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00118">libgps.h:118</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00118">EP</a>, <a class="el" href="libgps_8h_source.html#l00121">EX</a>, <a class="el" href="libgps_8h_source.html#l00124">EY</a>, <a class="el" href="libgps_8h_source.html#l00251">met_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00248">met_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00161">NC</a>, <a class="el" href="libgps_8h_source.html#l00245">met_t::np</a>, <a class="el" href="libgps_8h_source.html#l00239">met_t::nx</a>, <a class="el" href="libgps_8h_source.html#l00242">met_t::ny</a>, <a class="el" href="libgps_8h_source.html#l00254">met_t::p</a>, <a class="el" href="libgps_8c_source.html#l00785">read_met_extrapolate()</a>, <a class="el" href="libgps_8c_source.html#l00806">read_met_help()</a>, <a class="el" href="libgps_8c_source.html#l00838">read_met_periodic()</a>, <a class="el" href="libgps_8h_source.html#l00257">met_t::t</a>, and <a class="el" href="libgps_8h_source.html#l00236">met_t::time</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00191">get_met()</a>.</p>
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="libgps_8c_a4b7536f3487319c9d0650a6bfbbf4745_cgraph.png" border="0" usemap="#alibgps_8c_a4b7536f3487319c9d0650a6bfbbf4745_cgraph" alt=""/></div>
@@ -1681,6 +1768,10 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  801</span>    }</div>
 <div class="line"><span class="lineno">  802</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00245">met_t::np</a>, <a class="el" href="libgps_8h_source.html#l00239">met_t::nx</a>, <a class="el" href="libgps_8h_source.html#l00242">met_t::ny</a>, and <a class="el" href="libgps_8h_source.html#l00257">met_t::t</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00705">read_met()</a>.</p>
+
 </div>
 </div>
 <a id="ab4bf3e7235a161e9845cb0cf68aedc5c" name="ab4bf3e7235a161e9845cb0cf68aedc5c"></a>
@@ -1760,6 +1851,10 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  833</span>      }</div>
 <div class="line"><span class="lineno">  834</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00118">EP</a>, <a class="el" href="libgps_8h_source.html#l00121">EX</a>, <a class="el" href="libgps_8h_source.html#l00124">EY</a>, <a class="el" href="libgps_8h_source.html#l00161">NC</a>, <a class="el" href="libgps_8h_source.html#l00245">met_t::np</a>, <a class="el" href="libgps_8h_source.html#l00239">met_t::nx</a>, and <a class="el" href="libgps_8h_source.html#l00242">met_t::ny</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00705">read_met()</a>.</p>
+
 </div>
 </div>
 <a id="a38f91765df8eb0a66fb3a6408dca0600" name="a38f91765df8eb0a66fb3a6408dca0600"></a>
@@ -1801,6 +1896,10 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  856</span>      met-&gt;<a class="code hl_variable" href="structmet__t.html#a60fe66c30f0f0b5abdb46f220e3137cf">t</a>[met-&gt;<a class="code hl_variable" href="structmet__t.html#a2bbd96a0a7184bc730c14323a067a760">nx</a> - 1][iy][ip] = met-&gt;<a class="code hl_variable" href="structmet__t.html#a60fe66c30f0f0b5abdb46f220e3137cf">t</a>[0][iy][ip];</div>
 <div class="line"><span class="lineno">  857</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00121">EX</a>, <a class="el" href="libgps_8h_source.html#l00248">met_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00245">met_t::np</a>, <a class="el" href="libgps_8h_source.html#l00239">met_t::nx</a>, <a class="el" href="libgps_8h_source.html#l00242">met_t::ny</a>, and <a class="el" href="libgps_8h_source.html#l00257">met_t::t</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00705">read_met()</a>.</p>
+
 </div>
 </div>
 <a id="a62786d005ed312f3c9ba2fac7cd544fc" name="a62786d005ed312f3c9ba2fac7cd544fc"></a>
@@ -1900,6 +1999,8 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  903</span>  }</div>
 <div class="line"><span class="lineno">  904</span>}</div>
 </div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="libgps_8c_source.html#l00942">tropopause_spline()</a>.</p>
+
 </div>
 </div>
 <a id="ab76867a4d620f33feaa6f012d2f48c67" name="ab76867a4d620f33feaa6f012d2f48c67"></a>
@@ -1952,6 +2053,10 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  937</span>  }</div>
 <div class="line"><span class="lineno">  938</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00198">gps_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, <a class="el" href="libgps_8h_source.html#l00213">gps_t::th</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="perturbation_8c_source.html#l00032">main()</a>.</p>
+
 </div>
 </div>
 <a id="aa84264f7724272fcec7d7c6d2a59a9eb" name="aa84264f7724272fcec7d7c6d2a59a9eb"></a>
@@ -2117,15 +2222,19 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno"> 1075</span>  }</div>
 <div class="line"><span class="lineno"> 1076</span>}</div>
 <div class="ttc" id="alibgps_8c_html_a62786d005ed312f3c9ba2fac7cd544fc"><div class="ttname"><a href="libgps_8c.html#a62786d005ed312f3c9ba2fac7cd544fc">spline</a></div><div class="ttdeci">void spline(const double *x, const double *y, const int n, const double *x2, double *y2, const int n2, const int method)</div><div class="ttdoc">Performs spline interpolation or linear interpolation.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00861">libgps.c:861</a></div></div>
-<div class="ttc" id="alibgps_8h_html_a25d1c99b30b81c5705cff2f3dd224a1d"><div class="ttname"><a href="libgps_8h.html#a25d1c99b30b81c5705cff2f3dd224a1d">LAPSE</a></div><div class="ttdeci">#define LAPSE(p1, t1, p2, t2)</div><div class="ttdoc">Calculate lapse rate.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00129">libgps.h:129</a></div></div>
-<div class="ttc" id="alibgps_8h_html_a58b4f1573922a1f73dd4bf014fd441bf"><div class="ttname"><a href="libgps_8h.html#a58b4f1573922a1f73dd4bf014fd441bf">Z</a></div><div class="ttdeci">#define Z(p)</div><div class="ttdoc">Convert pressure to altitude.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00145">libgps.h:145</a></div></div>
-<div class="ttc" id="alibgps_8h_html_a5e1d0f42ad38aba63907665ccdd43b86"><div class="ttname"><a href="libgps_8h.html#a5e1d0f42ad38aba63907665ccdd43b86">P</a></div><div class="ttdeci">#define P(z)</div><div class="ttdoc">Compute pressure at given altitude.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00141">libgps.h:141</a></div></div>
-<div class="ttc" id="astructgps__t_html_a435b210e543ae865d7face484732582f"><div class="ttname"><a href="structgps__t.html#a435b210e543ae865d7face484732582f">gps_t::tlon</a></div><div class="ttdeci">double tlon[NDS]</div><div class="ttdoc">Tropopause longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00198">libgps.h:198</a></div></div>
-<div class="ttc" id="astructgps__t_html_a57adc26355e7ed29dfea32372dd91bfd"><div class="ttname"><a href="structgps__t.html#a57adc26355e7ed29dfea32372dd91bfd">gps_t::tt</a></div><div class="ttdeci">double tt[NDS]</div><div class="ttdoc">Tropopause temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00192">libgps.h:192</a></div></div>
-<div class="ttc" id="astructgps__t_html_a7608f0e5c2e5d0f5131d7521c19ef45f"><div class="ttname"><a href="structgps__t.html#a7608f0e5c2e5d0f5131d7521c19ef45f">gps_t::tp</a></div><div class="ttdeci">double tp[NDS]</div><div class="ttdoc">Tropopause pressure [hPa].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00189">libgps.h:189</a></div></div>
-<div class="ttc" id="astructgps__t_html_adda198d47171f82d7a6c78e1c6b64aeb"><div class="ttname"><a href="structgps__t.html#adda198d47171f82d7a6c78e1c6b64aeb">gps_t::tlat</a></div><div class="ttdeci">double tlat[NDS]</div><div class="ttdoc">Tropopause latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00201">libgps.h:201</a></div></div>
-<div class="ttc" id="astructgps__t_html_aeee063971d51a3bf9a60ee1cb4274501"><div class="ttname"><a href="structgps__t.html#aeee063971d51a3bf9a60ee1cb4274501">gps_t::tq</a></div><div class="ttdeci">double tq[NDS]</div><div class="ttdoc">Tropopause water vapor [ppmv].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00195">libgps.h:195</a></div></div>
-</div><!-- fragment --><div class="dynheader">
+<div class="ttc" id="alibgps_8h_html_a25d1c99b30b81c5705cff2f3dd224a1d"><div class="ttname"><a href="libgps_8h.html#a25d1c99b30b81c5705cff2f3dd224a1d">LAPSE</a></div><div class="ttdeci">#define LAPSE(p1, t1, p2, t2)</div><div class="ttdoc">Calculate lapse rate.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00156">libgps.h:156</a></div></div>
+<div class="ttc" id="alibgps_8h_html_a58b4f1573922a1f73dd4bf014fd441bf"><div class="ttname"><a href="libgps_8h.html#a58b4f1573922a1f73dd4bf014fd441bf">Z</a></div><div class="ttdeci">#define Z(p)</div><div class="ttdoc">Convert pressure to altitude.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00172">libgps.h:172</a></div></div>
+<div class="ttc" id="alibgps_8h_html_a5e1d0f42ad38aba63907665ccdd43b86"><div class="ttname"><a href="libgps_8h.html#a5e1d0f42ad38aba63907665ccdd43b86">P</a></div><div class="ttdeci">#define P(z)</div><div class="ttdoc">Compute pressure at given altitude.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00168">libgps.h:168</a></div></div>
+<div class="ttc" id="astructgps__t_html_a435b210e543ae865d7face484732582f"><div class="ttname"><a href="structgps__t.html#a435b210e543ae865d7face484732582f">gps_t::tlon</a></div><div class="ttdeci">double tlon[NDS]</div><div class="ttdoc">Tropopause longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00225">libgps.h:225</a></div></div>
+<div class="ttc" id="astructgps__t_html_a57adc26355e7ed29dfea32372dd91bfd"><div class="ttname"><a href="structgps__t.html#a57adc26355e7ed29dfea32372dd91bfd">gps_t::tt</a></div><div class="ttdeci">double tt[NDS]</div><div class="ttdoc">Tropopause temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00219">libgps.h:219</a></div></div>
+<div class="ttc" id="astructgps__t_html_a7608f0e5c2e5d0f5131d7521c19ef45f"><div class="ttname"><a href="structgps__t.html#a7608f0e5c2e5d0f5131d7521c19ef45f">gps_t::tp</a></div><div class="ttdeci">double tp[NDS]</div><div class="ttdoc">Tropopause pressure [hPa].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00216">libgps.h:216</a></div></div>
+<div class="ttc" id="astructgps__t_html_adda198d47171f82d7a6c78e1c6b64aeb"><div class="ttname"><a href="structgps__t.html#adda198d47171f82d7a6c78e1c6b64aeb">gps_t::tlat</a></div><div class="ttdeci">double tlat[NDS]</div><div class="ttdoc">Tropopause latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00228">libgps.h:228</a></div></div>
+<div class="ttc" id="astructgps__t_html_aeee063971d51a3bf9a60ee1cb4274501"><div class="ttname"><a href="structgps__t.html#aeee063971d51a3bf9a60ee1cb4274501">gps_t::tq</a></div><div class="ttdeci">double tq[NDS]</div><div class="ttdoc">Tropopause water vapor [ppmv].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00222">libgps.h:222</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8h_source.html#l00156">LAPSE</a>, <a class="el" href="libgps_8h_source.html#l00198">gps_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00195">gps_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00130">NZ</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00168">P</a>, <a class="el" href="libgps_8h_source.html#l00201">gps_t::p</a>, <a class="el" href="libgps_8c_source.html#l00861">spline()</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, <a class="el" href="libgps_8h_source.html#l00213">gps_t::th</a>, <a class="el" href="libgps_8h_source.html#l00228">gps_t::tlat</a>, <a class="el" href="libgps_8h_source.html#l00225">gps_t::tlon</a>, <a class="el" href="libgps_8h_source.html#l00216">gps_t::tp</a>, <a class="el" href="libgps_8h_source.html#l00222">gps_t::tq</a>, <a class="el" href="libgps_8h_source.html#l00219">gps_t::tt</a>, <a class="el" href="libgps_8h_source.html#l00207">gps_t::wv</a>, <a class="el" href="libgps_8h_source.html#l00172">Z</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="tropo_8c_source.html#l00032">main()</a>.</p>
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="libgps_8c_aa84264f7724272fcec7d7c6d2a59a9eb_cgraph.png" border="0" usemap="#alibgps_8c_aa84264f7724272fcec7d7c6d2a59a9eb_cgraph" alt=""/></div>
@@ -2236,7 +2345,11 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno"> 1149</span>  <a class="code hl_define" href="libgps_8h.html#a2678db26e1acda0cccd79553b9cc9b51">NC</a>(nc_close(ncid));</div>
 <div class="line"><span class="lineno"> 1150</span>}</div>
 <div class="ttc" id="alibgps_8c_html_a832132b5251582419a6ca58fe3615f1c"><div class="ttname"><a href="libgps_8c.html#a832132b5251582419a6ca58fe3615f1c">add_var</a></div><div class="ttdeci">void add_var(int ncid, const char *varname, const char *unit, const char *longname, int type, int dimid[], int *varid, int ndims)</div><div class="ttdoc">Add variable to netCDF file.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00030">libgps.c:30</a></div></div>
-</div><!-- fragment --><div class="dynheader">
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="libgps_8c_source.html#l00030">add_var()</a>, <a class="el" href="libgps_8h_source.html#l00198">gps_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00195">gps_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00161">NC</a>, <a class="el" href="libgps_8h_source.html#l00127">NDS</a>, <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00130">NZ</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00201">gps_t::p</a>, <a class="el" href="libgps_8h_source.html#l00210">gps_t::pt</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, <a class="el" href="libgps_8h_source.html#l00213">gps_t::th</a>, <a class="el" href="libgps_8h_source.html#l00189">gps_t::time</a>, <a class="el" href="libgps_8h_source.html#l00207">gps_t::wv</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="perturbation_8c_source.html#l00032">main()</a>.</p>
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="libgps_8c_a22df857a70faf8200bd9c387de0746a0_cgraph.png" border="0" usemap="#alibgps_8c_a22df857a70faf8200bd9c387de0746a0_cgraph" alt=""/></div>
@@ -2249,9 +2362,13 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="libgps_8c.html">libgps.c</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
 </body>
 </html>

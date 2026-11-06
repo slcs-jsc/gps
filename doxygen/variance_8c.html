@@ -7,11 +7,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GPS Code Collection: variance.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">var page_layout=1;</script>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   extensions: ["tex2jax.js"],
@@ -22,6 +32,7 @@ MathJax.Hub.Config({
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
@@ -30,8 +41,24 @@ MathJax.Hub.Config({
   <td id="projectalign">
    <div id="projectname">GPS Code Collection
    </div>
+   <div id="projectbrief">Algorithms and API reference for GPS/RO analysis tools</div>
   </td>
  </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td></tr>
  </tbody>
 </table>
 </div>
@@ -42,17 +69,22 @@ MathJax.Hub.Config({
 var searchBox = new SearchBox("searchBox", "search",'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('variance_8c.html',''); initResizable(); });
 /* @license-end */
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +99,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
@@ -399,21 +426,23 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  262</span>  <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
 <div class="line"><span class="lineno">  263</span>}</div>
 <div class="ttc" id="alibgps_8c_html_a999f498bd606291539c1abdd24394243"><div class="ttname"><a href="libgps_8c.html#a999f498bd606291539c1abdd24394243">read_gps</a></div><div class="ttdeci">void read_gps(char *filename, gps_t *gps)</div><div class="ttdoc">Read GPS-RO data file.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00634">libgps.c:634</a></div></div>
-<div class="ttc" id="alibgps_8h_html_a693aee47b2103d0a7fcd3a0a0dd4fb57"><div class="ttname"><a href="libgps_8h.html#a693aee47b2103d0a7fcd3a0a0dd4fb57">NZ</a></div><div class="ttdeci">#define NZ</div><div class="ttdoc">Maximum number of altitudes per GPS-RO profile.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00103">libgps.h:103</a></div></div>
-<div class="ttc" id="astructgps__t_html"><div class="ttname"><a href="structgps__t.html">gps_t</a></div><div class="ttdoc">GPS-RO profile data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00153">libgps.h:153</a></div></div>
-<div class="ttc" id="astructgps__t_html_a0b14a4a678e2313c8ba717ef1f6fc811"><div class="ttname"><a href="structgps__t.html#a0b14a4a678e2313c8ba717ef1f6fc811">gps_t::time</a></div><div class="ttdeci">double time[NDS]</div><div class="ttdoc">Time (seconds since 2000-01-01T00:00Z).</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00162">libgps.h:162</a></div></div>
-<div class="ttc" id="astructgps__t_html_a42b1c893eebb85bd0e2098b18895f86c"><div class="ttname"><a href="structgps__t.html#a42b1c893eebb85bd0e2098b18895f86c">gps_t::pt</a></div><div class="ttdeci">double pt[NDS][NZ]</div><div class="ttdoc">Temperature perturbation [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00183">libgps.h:183</a></div></div>
-<div class="ttc" id="astructgps__t_html_a62c89658cb73f0c253963312a1cd9c7a"><div class="ttname"><a href="structgps__t.html#a62c89658cb73f0c253963312a1cd9c7a">gps_t::t</a></div><div class="ttdeci">double t[NDS][NZ]</div><div class="ttdoc">Temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00177">libgps.h:177</a></div></div>
-<div class="ttc" id="astructgps__t_html_a7c0ffa2c4f6c587d0c7038f79c7a32dd"><div class="ttname"><a href="structgps__t.html#a7c0ffa2c4f6c587d0c7038f79c7a32dd">gps_t::nz</a></div><div class="ttdeci">int nz[NDS]</div><div class="ttdoc">Number of altitudes per profile.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00159">libgps.h:159</a></div></div>
-<div class="ttc" id="astructgps__t_html_a924958ccca91f994f51d1a31053c5a36"><div class="ttname"><a href="structgps__t.html#a924958ccca91f994f51d1a31053c5a36">gps_t::lon</a></div><div class="ttdeci">double lon[NDS][NZ]</div><div class="ttdoc">Longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00168">libgps.h:168</a></div></div>
-<div class="ttc" id="astructgps__t_html_aaf0651f734f0690fae832636bfd73c39"><div class="ttname"><a href="structgps__t.html#aaf0651f734f0690fae832636bfd73c39">gps_t::nds</a></div><div class="ttdeci">int nds</div><div class="ttdoc">Number of profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00156">libgps.h:156</a></div></div>
-<div class="ttc" id="astructgps__t_html_ab531dba3ca3e3b572e2611778d749bac"><div class="ttname"><a href="structgps__t.html#ab531dba3ca3e3b572e2611778d749bac">gps_t::th</a></div><div class="ttdeci">double th[NDS]</div><div class="ttdoc">Tropopause height [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00186">libgps.h:186</a></div></div>
-<div class="ttc" id="astructgps__t_html_ad1578ddb7b4cb5d5f4d5dea1ce1a4ca5"><div class="ttname"><a href="structgps__t.html#ad1578ddb7b4cb5d5f4d5dea1ce1a4ca5">gps_t::z</a></div><div class="ttdeci">double z[NDS][NZ]</div><div class="ttdoc">Altitude [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00165">libgps.h:165</a></div></div>
-<div class="ttc" id="astructgps__t_html_adf633779eb426357084d7b4d9f1a977c"><div class="ttname"><a href="structgps__t.html#adf633779eb426357084d7b4d9f1a977c">gps_t::lat</a></div><div class="ttdeci">double lat[NDS][NZ]</div><div class="ttdoc">Latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00171">libgps.h:171</a></div></div>
+<div class="ttc" id="alibgps_8h_html_a693aee47b2103d0a7fcd3a0a0dd4fb57"><div class="ttname"><a href="libgps_8h.html#a693aee47b2103d0a7fcd3a0a0dd4fb57">NZ</a></div><div class="ttdeci">#define NZ</div><div class="ttdoc">Maximum number of altitudes per GPS-RO profile.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00130">libgps.h:130</a></div></div>
+<div class="ttc" id="astructgps__t_html"><div class="ttname"><a href="structgps__t.html">gps_t</a></div><div class="ttdoc">GPS-RO profile data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00180">libgps.h:180</a></div></div>
+<div class="ttc" id="astructgps__t_html_a0b14a4a678e2313c8ba717ef1f6fc811"><div class="ttname"><a href="structgps__t.html#a0b14a4a678e2313c8ba717ef1f6fc811">gps_t::time</a></div><div class="ttdeci">double time[NDS]</div><div class="ttdoc">Time (seconds since 2000-01-01T00:00Z).</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00189">libgps.h:189</a></div></div>
+<div class="ttc" id="astructgps__t_html_a42b1c893eebb85bd0e2098b18895f86c"><div class="ttname"><a href="structgps__t.html#a42b1c893eebb85bd0e2098b18895f86c">gps_t::pt</a></div><div class="ttdeci">double pt[NDS][NZ]</div><div class="ttdoc">Temperature perturbation [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00210">libgps.h:210</a></div></div>
+<div class="ttc" id="astructgps__t_html_a62c89658cb73f0c253963312a1cd9c7a"><div class="ttname"><a href="structgps__t.html#a62c89658cb73f0c253963312a1cd9c7a">gps_t::t</a></div><div class="ttdeci">double t[NDS][NZ]</div><div class="ttdoc">Temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00204">libgps.h:204</a></div></div>
+<div class="ttc" id="astructgps__t_html_a7c0ffa2c4f6c587d0c7038f79c7a32dd"><div class="ttname"><a href="structgps__t.html#a7c0ffa2c4f6c587d0c7038f79c7a32dd">gps_t::nz</a></div><div class="ttdeci">int nz[NDS]</div><div class="ttdoc">Number of altitudes per profile.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00186">libgps.h:186</a></div></div>
+<div class="ttc" id="astructgps__t_html_a924958ccca91f994f51d1a31053c5a36"><div class="ttname"><a href="structgps__t.html#a924958ccca91f994f51d1a31053c5a36">gps_t::lon</a></div><div class="ttdeci">double lon[NDS][NZ]</div><div class="ttdoc">Longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00195">libgps.h:195</a></div></div>
+<div class="ttc" id="astructgps__t_html_aaf0651f734f0690fae832636bfd73c39"><div class="ttname"><a href="structgps__t.html#aaf0651f734f0690fae832636bfd73c39">gps_t::nds</a></div><div class="ttdeci">int nds</div><div class="ttdoc">Number of profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00183">libgps.h:183</a></div></div>
+<div class="ttc" id="astructgps__t_html_ab531dba3ca3e3b572e2611778d749bac"><div class="ttname"><a href="structgps__t.html#ab531dba3ca3e3b572e2611778d749bac">gps_t::th</a></div><div class="ttdeci">double th[NDS]</div><div class="ttdoc">Tropopause height [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00213">libgps.h:213</a></div></div>
+<div class="ttc" id="astructgps__t_html_ad1578ddb7b4cb5d5f4d5dea1ce1a4ca5"><div class="ttname"><a href="structgps__t.html#ad1578ddb7b4cb5d5f4d5dea1ce1a4ca5">gps_t::z</a></div><div class="ttdeci">double z[NDS][NZ]</div><div class="ttdoc">Altitude [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00192">libgps.h:192</a></div></div>
+<div class="ttc" id="astructgps__t_html_adf633779eb426357084d7b4d9f1a977c"><div class="ttname"><a href="structgps__t.html#adf633779eb426357084d7b4d9f1a977c">gps_t::lat</a></div><div class="ttdeci">double lat[NDS][NZ]</div><div class="ttdoc">Latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00198">libgps.h:198</a></div></div>
 <div class="ttc" id="avariance_8c_html_a204d68a1f455806b0592b3027f1ec9f6"><div class="ttname"><a href="variance_8c.html#a204d68a1f455806b0592b3027f1ec9f6">GY</a></div><div class="ttdeci">#define GY</div><div class="ttdef"><b>Definition:</b> <a href="variance_8c_source.html#l00036">variance.c:36</a></div></div>
 <div class="ttc" id="avariance_8c_html_a9dc4ad97697d8ec71d3c18402364e66e"><div class="ttname"><a href="variance_8c.html#a9dc4ad97697d8ec71d3c18402364e66e">GX</a></div><div class="ttdeci">#define GX</div><div class="ttdef"><b>Definition:</b> <a href="variance_8c_source.html#l00033">variance.c:33</a></div></div>
 <div class="ttc" id="avariance_8c_html_add38c870573aca23ca15ff76e6ae009e"><div class="ttname"><a href="variance_8c.html#add38c870573aca23ca15ff76e6ae009e">GZ</a></div><div class="ttdeci">#define GZ</div><div class="ttdef"><b>Definition:</b> <a href="variance_8c_source.html#l00039">variance.c:39</a></div></div>
-</div><!-- fragment --><div class="dynheader">
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="variance_8c_source.html#l00033">GX</a>, <a class="el" href="variance_8c_source.html#l00036">GY</a>, <a class="el" href="variance_8c_source.html#l00039">GZ</a>, <a class="el" href="libgps_8h_source.html#l00198">gps_t::lat</a>, <a class="el" href="libgps_8h_source.html#l00195">gps_t::lon</a>, <a class="el" href="libgps_8h_source.html#l00183">gps_t::nds</a>, <a class="el" href="libgps_8h_source.html#l00130">NZ</a>, <a class="el" href="libgps_8h_source.html#l00186">gps_t::nz</a>, <a class="el" href="libgps_8h_source.html#l00210">gps_t::pt</a>, <a class="el" href="libgps_8c_source.html#l00634">read_gps()</a>, <a class="el" href="libgps_8h_source.html#l00204">gps_t::t</a>, <a class="el" href="libgps_8h_source.html#l00213">gps_t::th</a>, <a class="el" href="libgps_8h_source.html#l00189">gps_t::time</a>, and <a class="el" href="libgps_8h_source.html#l00192">gps_t::z</a>.</p>
+<div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="variance_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#avariance_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
@@ -426,9 +455,13 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="variance_8c.html">variance.c</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
 </body>
 </html>

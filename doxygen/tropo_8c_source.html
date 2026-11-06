@@ -7,11 +7,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>GPS Code Collection: tropo.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">var page_layout=1;</script>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   extensions: ["tex2jax.js"],
@@ -22,6 +32,7 @@ MathJax.Hub.Config({
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div id="side-nav" class="ui-resizable side-nav-resizable"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
@@ -30,8 +41,24 @@ MathJax.Hub.Config({
   <td id="projectalign">
    <div id="projectname">GPS Code Collection
    </div>
+   <div id="projectbrief">Algorithms and API reference for GPS/RO analysis tools</div>
   </td>
  </tr>
+   <tr><td colspan="2">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td></tr>
  </tbody>
 </table>
 </div>
@@ -42,17 +69,22 @@ MathJax.Hub.Config({
 var searchBox = new SearchBox("searchBox", "search",'Search','.html');
 /* @license-end */
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('tropo_8c_source.html',''); initResizable(); });
 /* @license-end */
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +99,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">tropo.c</div></div>
 </div><!--header-->
@@ -293,22 +320,26 @@ $(function() {
 <div class="ttc" id="alibgps_8c_html_a832132b5251582419a6ca58fe3615f1c"><div class="ttname"><a href="libgps_8c.html#a832132b5251582419a6ca58fe3615f1c">add_var</a></div><div class="ttdeci">void add_var(int ncid, const char *varname, const char *unit, const char *longname, int type, int dimid[], int *varid, int ndims)</div><div class="ttdoc">Add variable to netCDF file.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00030">libgps.c:30</a></div></div>
 <div class="ttc" id="alibgps_8c_html_aa84264f7724272fcec7d7c6d2a59a9eb"><div class="ttname"><a href="libgps_8c.html#aa84264f7724272fcec7d7c6d2a59a9eb">tropopause_spline</a></div><div class="ttdeci">void tropopause_spline(gps_t *gps, int met_tropo)</div><div class="ttdoc">Find tropopause height using cubic spline interpolation.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8c_source.html#l00942">libgps.c:942</a></div></div>
 <div class="ttc" id="alibgps_8h_html"><div class="ttname"><a href="libgps_8h.html">libgps.h</a></div><div class="ttdoc">GPS Code Collection library declarations.</div></div>
-<div class="ttc" id="alibgps_8h_html_a2678db26e1acda0cccd79553b9cc9b51"><div class="ttname"><a href="libgps_8h.html#a2678db26e1acda0cccd79553b9cc9b51">NC</a></div><div class="ttdeci">#define NC(cmd)</div><div class="ttdoc">Execute netCDF library command and check result.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00134">libgps.h:134</a></div></div>
-<div class="ttc" id="alibgps_8h_html_a7ca823fc1ab3608cded588de021916eb"><div class="ttname"><a href="libgps_8h.html#a7ca823fc1ab3608cded588de021916eb">NDS</a></div><div class="ttdeci">#define NDS</div><div class="ttdoc">Maximum number of GPS-RO profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00100">libgps.h:100</a></div></div>
-<div class="ttc" id="astructgps__t_html"><div class="ttname"><a href="structgps__t.html">gps_t</a></div><div class="ttdoc">GPS-RO profile data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00153">libgps.h:153</a></div></div>
-<div class="ttc" id="astructgps__t_html_a0b14a4a678e2313c8ba717ef1f6fc811"><div class="ttname"><a href="structgps__t.html#a0b14a4a678e2313c8ba717ef1f6fc811">gps_t::time</a></div><div class="ttdeci">double time[NDS]</div><div class="ttdoc">Time (seconds since 2000-01-01T00:00Z).</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00162">libgps.h:162</a></div></div>
-<div class="ttc" id="astructgps__t_html_a435b210e543ae865d7face484732582f"><div class="ttname"><a href="structgps__t.html#a435b210e543ae865d7face484732582f">gps_t::tlon</a></div><div class="ttdeci">double tlon[NDS]</div><div class="ttdoc">Tropopause longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00198">libgps.h:198</a></div></div>
-<div class="ttc" id="astructgps__t_html_a57adc26355e7ed29dfea32372dd91bfd"><div class="ttname"><a href="structgps__t.html#a57adc26355e7ed29dfea32372dd91bfd">gps_t::tt</a></div><div class="ttdeci">double tt[NDS]</div><div class="ttdoc">Tropopause temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00192">libgps.h:192</a></div></div>
-<div class="ttc" id="astructgps__t_html_a7608f0e5c2e5d0f5131d7521c19ef45f"><div class="ttname"><a href="structgps__t.html#a7608f0e5c2e5d0f5131d7521c19ef45f">gps_t::tp</a></div><div class="ttdeci">double tp[NDS]</div><div class="ttdoc">Tropopause pressure [hPa].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00189">libgps.h:189</a></div></div>
-<div class="ttc" id="astructgps__t_html_aaf0651f734f0690fae832636bfd73c39"><div class="ttname"><a href="structgps__t.html#aaf0651f734f0690fae832636bfd73c39">gps_t::nds</a></div><div class="ttdeci">int nds</div><div class="ttdoc">Number of profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00156">libgps.h:156</a></div></div>
-<div class="ttc" id="astructgps__t_html_ab531dba3ca3e3b572e2611778d749bac"><div class="ttname"><a href="structgps__t.html#ab531dba3ca3e3b572e2611778d749bac">gps_t::th</a></div><div class="ttdeci">double th[NDS]</div><div class="ttdoc">Tropopause height [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00186">libgps.h:186</a></div></div>
-<div class="ttc" id="astructgps__t_html_adda198d47171f82d7a6c78e1c6b64aeb"><div class="ttname"><a href="structgps__t.html#adda198d47171f82d7a6c78e1c6b64aeb">gps_t::tlat</a></div><div class="ttdeci">double tlat[NDS]</div><div class="ttdoc">Tropopause latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00201">libgps.h:201</a></div></div>
-<div class="ttc" id="astructgps__t_html_aeee063971d51a3bf9a60ee1cb4274501"><div class="ttname"><a href="structgps__t.html#aeee063971d51a3bf9a60ee1cb4274501">gps_t::tq</a></div><div class="ttdeci">double tq[NDS]</div><div class="ttdoc">Tropopause water vapor [ppmv].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00195">libgps.h:195</a></div></div>
+<div class="ttc" id="alibgps_8h_html_a2678db26e1acda0cccd79553b9cc9b51"><div class="ttname"><a href="libgps_8h.html#a2678db26e1acda0cccd79553b9cc9b51">NC</a></div><div class="ttdeci">#define NC(cmd)</div><div class="ttdoc">Execute netCDF library command and check result.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00161">libgps.h:161</a></div></div>
+<div class="ttc" id="alibgps_8h_html_a7ca823fc1ab3608cded588de021916eb"><div class="ttname"><a href="libgps_8h.html#a7ca823fc1ab3608cded588de021916eb">NDS</a></div><div class="ttdeci">#define NDS</div><div class="ttdoc">Maximum number of GPS-RO profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00127">libgps.h:127</a></div></div>
+<div class="ttc" id="astructgps__t_html"><div class="ttname"><a href="structgps__t.html">gps_t</a></div><div class="ttdoc">GPS-RO profile data.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00180">libgps.h:180</a></div></div>
+<div class="ttc" id="astructgps__t_html_a0b14a4a678e2313c8ba717ef1f6fc811"><div class="ttname"><a href="structgps__t.html#a0b14a4a678e2313c8ba717ef1f6fc811">gps_t::time</a></div><div class="ttdeci">double time[NDS]</div><div class="ttdoc">Time (seconds since 2000-01-01T00:00Z).</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00189">libgps.h:189</a></div></div>
+<div class="ttc" id="astructgps__t_html_a435b210e543ae865d7face484732582f"><div class="ttname"><a href="structgps__t.html#a435b210e543ae865d7face484732582f">gps_t::tlon</a></div><div class="ttdeci">double tlon[NDS]</div><div class="ttdoc">Tropopause longitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00225">libgps.h:225</a></div></div>
+<div class="ttc" id="astructgps__t_html_a57adc26355e7ed29dfea32372dd91bfd"><div class="ttname"><a href="structgps__t.html#a57adc26355e7ed29dfea32372dd91bfd">gps_t::tt</a></div><div class="ttdeci">double tt[NDS]</div><div class="ttdoc">Tropopause temperature [K].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00219">libgps.h:219</a></div></div>
+<div class="ttc" id="astructgps__t_html_a7608f0e5c2e5d0f5131d7521c19ef45f"><div class="ttname"><a href="structgps__t.html#a7608f0e5c2e5d0f5131d7521c19ef45f">gps_t::tp</a></div><div class="ttdeci">double tp[NDS]</div><div class="ttdoc">Tropopause pressure [hPa].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00216">libgps.h:216</a></div></div>
+<div class="ttc" id="astructgps__t_html_aaf0651f734f0690fae832636bfd73c39"><div class="ttname"><a href="structgps__t.html#aaf0651f734f0690fae832636bfd73c39">gps_t::nds</a></div><div class="ttdeci">int nds</div><div class="ttdoc">Number of profiles.</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00183">libgps.h:183</a></div></div>
+<div class="ttc" id="astructgps__t_html_ab531dba3ca3e3b572e2611778d749bac"><div class="ttname"><a href="structgps__t.html#ab531dba3ca3e3b572e2611778d749bac">gps_t::th</a></div><div class="ttdeci">double th[NDS]</div><div class="ttdoc">Tropopause height [km].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00213">libgps.h:213</a></div></div>
+<div class="ttc" id="astructgps__t_html_adda198d47171f82d7a6c78e1c6b64aeb"><div class="ttname"><a href="structgps__t.html#adda198d47171f82d7a6c78e1c6b64aeb">gps_t::tlat</a></div><div class="ttdeci">double tlat[NDS]</div><div class="ttdoc">Tropopause latitude [deg].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00228">libgps.h:228</a></div></div>
+<div class="ttc" id="astructgps__t_html_aeee063971d51a3bf9a60ee1cb4274501"><div class="ttname"><a href="structgps__t.html#aeee063971d51a3bf9a60ee1cb4274501">gps_t::tq</a></div><div class="ttdeci">double tq[NDS]</div><div class="ttdoc">Tropopause water vapor [ppmv].</div><div class="ttdef"><b>Definition:</b> <a href="libgps_8h_source.html#l00222">libgps.h:222</a></div></div>
 <div class="ttc" id="atropo_8c_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="tropo_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="tropo_8c_source.html#l00032">tropo.c:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="tropo_8c.html">tropo.c</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
 </body>
 </html>
