@@ -50,6 +50,8 @@ cd src
 make install
 ```
 
+Run `make clean` before rebuilding with changed compiler options; Make does not track command-line flag changes. Run `make check` without `-j`.
+
 ## Tests
 
 Regression tests are orchestrated by `src/Makefile` and executed from `tests/`:
@@ -64,7 +66,7 @@ Test scripts currently:
 - create a local `data/` directory inside the test folder
 - compare generated outputs against `data.ref/`
 
-If you change numerical behavior or output formatting, run the relevant regression tests and check diffs carefully before updating any reference data.
+If you change numerical behavior or output formatting, run the relevant regression tests and investigate diffs before updating any reference data. Update only affected baselines after verifying and explaining the new results.
 
 ## Dependencies
 
@@ -92,7 +94,11 @@ Follow the existing style in `src/`:
 - keep functions and declarations in the project’s current formatting style
 - use the shared helpers/macros already present in headers such as `NC`, `ALLOC`, and error-reporting utilities where appropriate
 - prefer minimal, localized changes over large refactors
+- before changing behavior, check existing callers, tests, and documented expectations; question assumptions and explain non-obvious choices
+- reuse existing data structures where possible; check memory and affected data paths before adding a `struct`
+- avoid new `static` helper functions; use a macro for a small operation when its arguments can be evaluated safely, or a regular function declared and documented in `src/libgps.h`
 - preserve Doxygen-style comments and block comment conventions when touching documented code
+- format C sources and headers from `src/` with `make indent` after a successful build; review the diff because the target rewrites all `*.c` and `*.h` files, including copied JURASSIC sources
 
 The `Makefile` uses strict warnings and `-Werror`. New code should be clean under those flags, including conversion and prototype warnings.
 
@@ -110,6 +116,7 @@ Documentation tooling is driven from `src/Makefile`:
 - `make mkdocs`
 
 If code changes affect CLI behavior, build instructions, or documented algorithms, update the relevant docs in `README.md` or `docs/`.
+Keep the MkDocs manual in `docs/manual/` and Doxygen API documentation current with relevant code, build, and workflow changes. Build affected docs with `make mkdocs` and/or `make doxygen` from `src/` when the tools are available. For new or revised API Doxygen comments, use a substantive description beyond `@brief`, document parameters and behavior where relevant, and include `@author` with the responsible author's name. Follow the detailed `/** ... */` examples in `src/jurassic.h` without editing that copied dependency for style alone; do not invent attribution.
 
 ## Agent Expectations
 
