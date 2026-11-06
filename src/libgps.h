@@ -26,54 +26,81 @@
 /*! 
   \mainpage
 
-  The GPS Code Collection enables data processing and analysis
-  for of GPS/RO observations.
+  The GPS Code Collection provides C-based tools and library routines for the
+  analysis of GPS radio occultation observations.
 
   \section Introduction
+
+  This Doxygen manual focuses on the source-level reference for the project:
+
+  - core data structures declared in `libgps.h`
+  - helper routines implemented in `libgps.c`
+  - command-line tools in `src/`
+  - relationships between functions, files, and call sites
 
   The source code of the GPS Code Collection is available from the
   [git repository](https://github.com/slcs-jsc/gps). Please see the
   [README.md](https://github.com/slcs-jsc/gps/blob/master/README.md)
-  in the git repository for introductory information. More information
-  can be found in the [user manual](https://slcs-jsc.github.io/gps).
-  
-  This doxygen manual contains information about the algorithms and
-  data structures used in the code. Please refer to the `libgps.h'
-  documentation for a first overview.
-  
+  for installation notes and repository-level guidance. A lighter user-facing
+  manual is available at [https://slcs-jsc.github.io/gps](https://slcs-jsc.github.io/gps).
+
+  \section Structure
+
+  The main source tree is organized as follows:
+
+  - `libgps.h` and `libgps.c`: shared data structures, netCDF helpers,
+    interpolation utilities, and analysis routines
+  - `*.c` in `src/`: command-line executables for time conversion, profile
+    extraction, perturbation analysis, tropopause diagnostics, and related tasks
+  - `jurassic.c` and `jurassic.h`: vendored source from the external
+    [JURASSIC](https://github.com/slcs-jsc/jurassic) radiative transfer model
+
+  The Doxygen reference is centered on the GPS Code Collection code. Vendored
+  JURASSIC sources are kept in this repository for convenience but are
+  documented in their own upstream project.
+
+  \section Build
+
+  Typical build and test workflow:
+
+  \code{.sh}
+  cd src
+  make
+  make check
+  \endcode
+
+  If local copies of GSL and netCDF are needed, build them first:
+
+  \code{.sh}
+  cd libs
+  ./build.sh
+  \endcode
+
   \section References
-  
-  For citing the model in scientific publications, please see
+
+  For citation metadata, please see
   [CITATION.cff](https://github.com/slcs-jsc/gps/blob/master/CITATION.cff).
-  
-  \section License
-  
-  The GPS Code Collection is being develop at the Jülich Supercomputing Centre,
-  Forschungszentrum Jülich, Germany.
-  
-  the GPS Code Collection is distributed under the terms of the
-  [GNU General Public License v3.0](https://github.com/slcs-jsc/gps/blob/master/COPYING).
-  
+
   \section Contributing
-  
-  We are interested in supporting operational and research
-  applications with the GPS Code Collection.
-  
-  You can submit bug reports or feature requests on the
-  [issue tracker](https://github.com/slcs-jsc/gps/issues).
-  
-  Proposed code changes and fixes can be submitted as
-  [pull requests](https://github.com/slcs-jsc/gps/pulls).
-  
-  Please do not hesitate to contact us if you have any questions or
-  need assistance.
-  
+
+  Questions, bug reports, and proposed changes can be submitted via the project
+  repository:
+
+  - [Issues](https://github.com/slcs-jsc/gps/issues)
+  - [Pull requests](https://github.com/slcs-jsc/gps/pulls)
+
+  \section License
+
+  The GPS Code Collection is developed at the Jülich Supercomputing Centre,
+  Forschungszentrum Jülich, Germany, and is distributed under the terms of the
+  [GNU General Public License v3.0](https://github.com/slcs-jsc/gps/blob/master/COPYING).
+
   \section Contact
-  
+
   Dr. Lars Hoffmann
-  
+
   Jülich Supercomputing Centre, Forschungszentrum Jülich
-  
+
   e-mail: <l.hoffmann@fz-juelich.de>
 */
 
