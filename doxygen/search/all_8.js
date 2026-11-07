@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['ma_0',['MA',['../libgps_8h.html#a11702dcb3f3ec928229185eb96686127',1,'libgps.h']]],
-  ['main_1',['main',['../day2doy_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;day2doy.c'],['../doy2day_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;doy2day.c'],['../events_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;events.c'],['../jsec2time_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;jsec2time.c'],['../map_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;map.c'],['../perturbation_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;perturbation.c'],['../prof_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;prof.c'],['../response_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;response.c'],['../time2jsec_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;time2jsec.c'],['../tropo_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;tropo.c'],['../variance_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;variance.c']]],
-  ['map_2ec_2',['map.c',['../map_8c.html',1,'']]],
-  ['met_5ft_3',['met_t',['../structmet__t.html',1,'']]]
+  ['lapse_0',['LAPSE',['../libgps_8h.html#a25d1c99b30b81c5705cff2f3dd224a1d',1,'libgps.h']]],
+  ['lat_1',['lat',['../structgps__t.html#adf633779eb426357084d7b4d9f1a977c',1,'gps_t::lat'],['../structmet__t.html#af7b2d03415a8164a3e0a29da55a9f371',1,'met_t::lat']]],
+  ['libgps_2ec_2',['libgps.c',['../libgps_8c.html',1,'']]],
+  ['libgps_2eh_3',['libgps.h',['../libgps_8h.html',1,'']]],
+  ['lon_4',['lon',['../structgps__t.html#a924958ccca91f994f51d1a31053c5a36',1,'gps_t::lon'],['../structmet__t.html#a85df96bff71dfa55576a995234a87b8f',1,'met_t::lon']]]
 ];

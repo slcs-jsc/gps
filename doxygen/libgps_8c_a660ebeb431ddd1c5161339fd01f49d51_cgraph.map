@@ -1,4 +1,5 @@
 <map id="poly" name="poly">
-<area shape="rect" id="node1" title="Remove polynomial fit from perturbation profile." alt="" coords="5,5,51,32"/>
-<area shape="rect" id="node2" href="$libgps_8c.html#aae7607dd4621eaa793cfa24ff6cbe71a" title="Auxiliary function for polynomial interpolation." alt="" coords="99,5,175,32"/>
+<area shape="rect" id="Node000001" title="Remove polynomial fit from perturbation profile." alt="" coords="5,5,50,31"/>
+<area shape="rect" id="Node000002" href="$libgps_8c.html#aae7607dd4621eaa793cfa24ff6cbe71a" title="Auxiliary function for polynomial interpolation." alt="" coords="98,5,173,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,16,82,16,82,21,50,21"/>
 </map>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['z_0',['z',['../structgps__t.html#ad1578ddb7b4cb5d5f4d5dea1ce1a4ca5',1,'gps_t']]],
-  ['z_1',['Z',['../libgps_8h.html#a58b4f1573922a1f73dd4bf014fd441bf',1,'libgps.h']]]
+  ['write_5fgps_0',['write_gps',['../libgps_8c.html#a22df857a70faf8200bd9c387de0746a0',1,'write_gps(char *filename, gps_t *gps):&#160;libgps.c'],['../libgps_8h.html#a22df857a70faf8200bd9c387de0746a0',1,'write_gps(char *filename, gps_t *gps):&#160;libgps.c']]],
+  ['wv_1',['wv',['../structgps__t.html#a795f4c624baaeff3bdb50d95acf2427f',1,'gps_t']]]
 ];

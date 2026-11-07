@@ -1,4 +1,5 @@
 <map id="tropopause_spline" name="tropopause_spline">
-<area shape="rect" id="node1" title="Find tropopause height using cubic spline interpolation." alt="" coords="5,5,132,32"/>
-<area shape="rect" id="node2" href="$libgps_8c.html#a62786d005ed312f3c9ba2fac7cd544fc" title="Performs spline interpolation or linear interpolation." alt="" coords="180,5,236,32"/>
+<area shape="rect" id="Node000001" title="Find tropopause height using cubic spline interpolation." alt="" coords="5,5,132,31"/>
+<area shape="rect" id="Node000002" href="$libgps_8c.html#a62786d005ed312f3c9ba2fac7cd544fc" title="Performs spline interpolation or linear interpolation." alt="" coords="180,5,235,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,16,164,16,164,21,132,21"/>
 </map>

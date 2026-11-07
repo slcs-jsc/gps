@@ -1,5 +1,7 @@
 <map id="intpol_met_time" name="intpol_met_time">
-<area shape="rect" id="node1" title="Temporal interpolation of meteorological data." alt="" coords="5,5,120,32"/>
-<area shape="rect" id="node2" href="$libgps_8c.html#a1a79c829de505451c3e0c80fface9f43" title="Spatial interpolation of meteorological data." alt="" coords="168,5,292,32"/>
-<area shape="rect" id="node3" href="$libgps_8c.html#a6f092fadf1adc9dc38f37eb0cb572703" title="Linear interpolation of 3&#45;D meteorological data." alt="" coords="340,5,443,32"/>
+<area shape="rect" id="Node000001" title="Temporal interpolation of meteorological data." alt="" coords="5,5,119,31"/>
+<area shape="rect" id="Node000002" href="$libgps_8c.html#a1a79c829de505451c3e0c80fface9f43" title="Spatial interpolation of meteorological data." alt="" coords="167,5,290,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,16,151,16,151,21,119,21"/>
+<area shape="rect" id="Node000003" href="$libgps_8c.html#a6f092fadf1adc9dc38f37eb0cb572703" title="Linear interpolation of 3&#45;D meteorological data." alt="" coords="338,5,440,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="290,16,323,16,323,21,290,21"/>
 </map>

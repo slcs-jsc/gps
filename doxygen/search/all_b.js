@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['ra_0',['RA',['../libgps_8h.html#a30a3f049b718d26a32f16ed72716d588',1,'libgps.h']]],
-  ['read_5fgps_1',['read_gps',['../libgps_8c.html#a999f498bd606291539c1abdd24394243',1,'read_gps(char *filename, gps_t *gps):&#160;libgps.c'],['../libgps_8h.html#a999f498bd606291539c1abdd24394243',1,'read_gps(char *filename, gps_t *gps):&#160;libgps.c']]],
-  ['read_5fgps_5fprof_2',['read_gps_prof',['../libgps_8c.html#a5fc477800b26e1548c8586564e4e179b',1,'read_gps_prof(char *filename, gps_t *gps, double prof_zmin_max, double prof_zmax_min):&#160;libgps.c'],['../libgps_8h.html#a5fc477800b26e1548c8586564e4e179b',1,'read_gps_prof(char *filename, gps_t *gps, double prof_zmin_max, double prof_zmax_min):&#160;libgps.c']]],
-  ['read_5fmet_3',['read_met',['../libgps_8c.html#a4b7536f3487319c9d0650a6bfbbf4745',1,'read_met(char *filename, met_t *met):&#160;libgps.c'],['../libgps_8h.html#a4b7536f3487319c9d0650a6bfbbf4745',1,'read_met(char *filename, met_t *met):&#160;libgps.c']]],
-  ['read_5fmet_5fextrapolate_4',['read_met_extrapolate',['../libgps_8c.html#a089d9c0099e3fc6944c2a48667362ca0',1,'read_met_extrapolate(met_t *met):&#160;libgps.c'],['../libgps_8h.html#a089d9c0099e3fc6944c2a48667362ca0',1,'read_met_extrapolate(met_t *met):&#160;libgps.c']]],
-  ['read_5fmet_5fhelp_5',['read_met_help',['../libgps_8c.html#ab4bf3e7235a161e9845cb0cf68aedc5c',1,'read_met_help(int ncid, char *varname, char *varname2, met_t *met, float dest[EX][EY][EP], float scl):&#160;libgps.c'],['../libgps_8h.html#ab4bf3e7235a161e9845cb0cf68aedc5c',1,'read_met_help(int ncid, char *varname, char *varname2, met_t *met, float dest[EX][EY][EP], float scl):&#160;libgps.c']]],
-  ['read_5fmet_5fperiodic_6',['read_met_periodic',['../libgps_8c.html#a38f91765df8eb0a66fb3a6408dca0600',1,'read_met_periodic(met_t *met):&#160;libgps.c'],['../libgps_8h.html#a38f91765df8eb0a66fb3a6408dca0600',1,'read_met_periodic(met_t *met):&#160;libgps.c']]],
-  ['response_2ec_7',['response.c',['../response_8c.html',1,'']]],
-  ['ri_8',['RI',['../libgps_8h.html#a7e71def3baefc10ec36f1dd48da4050e',1,'libgps.h']]]
+  ['p_0',['P',['../libgps_8h.html#a5e1d0f42ad38aba63907665ccdd43b86',1,'libgps.h']]],
+  ['p_1',['p',['../structgps__t.html#ab0b6cfe183a2456b2ccabdaf572807d8',1,'gps_t::p'],['../structmet__t.html#affbacae5925ff68007396b525622ee34',1,'met_t::p']]],
+  ['perturbation_2ec_2',['perturbation.c',['../perturbation_8c.html',1,'']]],
+  ['poly_3',['poly',['../libgps_8c.html#a660ebeb431ddd1c5161339fd01f49d51',1,'poly(gps_t *gps, int dim, double zmin, double zmax):&#160;libgps.c'],['../libgps_8h.html#a660ebeb431ddd1c5161339fd01f49d51',1,'poly(gps_t *gps, int dim, double zmin, double zmax):&#160;libgps.c']]],
+  ['poly_5fhelp_4',['poly_help',['../libgps_8c.html#aae7607dd4621eaa793cfa24ff6cbe71a',1,'poly_help(double *xx, double *yy, int n, int dim, double xmin, double xmax):&#160;libgps.c'],['../libgps_8h.html#aae7607dd4621eaa793cfa24ff6cbe71a',1,'poly_help(double *xx, double *yy, int n, int dim, double xmin, double xmax):&#160;libgps.c']]],
+  ['prof_2ec_5',['prof.c',['../prof_8c.html',1,'']]],
+  ['pt_6',['pt',['../structgps__t.html#a42b1c893eebb85bd0e2098b18895f86c',1,'gps_t']]]
 ];

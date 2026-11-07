@@ -1,5 +1,7 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,31,56,57"/>
-<area shape="rect" id="node2" href="$libgps_8c.html#aa52feecb5ab6f4206d043ddb24acf930" title="Apply vertical Hamming filter to reduce noise." alt="" coords="104,5,245,32"/>
-<area shape="rect" id="node3" href="$libgps_8c.html#a9ecbe649ddc94873033ab41be8e1d2cf" title="Apply vertical Hamming filter to extract perturbations." alt="" coords="106,56,243,83"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,55,56"/>
+<area shape="rect" id="Node000002" href="$libgps_8c.html#aa52feecb5ab6f4206d043ddb24acf930" title="Apply vertical Hamming filter to reduce noise." alt="" coords="103,5,243,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,37,87,31,88,36,56,42"/>
+<area shape="rect" id="Node000003" href="$libgps_8c.html#a9ecbe649ddc94873033ab41be8e1d2cf" title="Apply vertical Hamming filter to extract perturbations." alt="" coords="105,55,241,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="56,45,90,51,89,56,55,50"/>
 </map>
